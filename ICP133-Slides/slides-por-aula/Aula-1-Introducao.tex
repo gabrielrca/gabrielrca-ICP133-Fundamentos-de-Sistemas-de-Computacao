@@ -1,3 +1,12 @@
+\title{Aula 1 - Sistemas analógicos e digitais}
+
+
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+
 \begin{frame}{O Sistema do Telégrafo}
     \begin{itemize}
         \item \textbf{Funcionamento Eletromecânico:}
@@ -14,6 +23,7 @@
     \end{itemize}
 
 \end{frame}
+
 
 \begin{frame}{Diagramas de Tempos e Sinais}
     \begin{center}
@@ -98,12 +108,7 @@
     \begin{itemize}
         \item \textbf{Histórico:} Alexander Graham Bell (1875) converteu voz em sinal elétrico continuamente variável.
         \item \textbf{O Microfone:} Atua como um transdutor que converte energia sonora em \textbf{tensão analógica}.
-        \item \textbf{Características do Sinal de Voz:}
-              \begin{itemize}
-                  \item \textbf{Frequência ($f$):} Ciclos por segundo; define os tons da voz.
-                  \item \textbf{Período ($T$):} Tempo de cada ciclo ($T = 1/f$).
-                  \item \textbf{Amplitude:} Medida no eixo vertical (Volts); define a \textbf{intensidade} (volume) e a inflexão da fala.
-              \end{itemize}
+
     \end{itemize}
 
 \end{frame}
@@ -115,27 +120,10 @@
     \end{center}
 
 
+    Os valores variam ao longo de uma \textbf{faixa contínua}
 \end{frame}
 
-\begin{frame}{A Natureza Contínua das Quantidades}
-    \begin{itemize}
-        \item \textbf{Característica Fundamental:} Variam ao longo de uma \textbf{faixa contínua} de valores.
-        \item \textbf{Exemplos de Faixas Típicas:}
-    \end{itemize}
-    \begin{table}[]
-        \centering
-        \begin{tabular}{|l|l|}
-            \hline
-            \textbf{Grandeza}  & \textbf{Exemplo de Faixa} \\ \hline
-            Velocidade         & 0 a 160 km/h              \\ \hline
-            Temperatura        & -29°C a 49°C              \\ \hline
-            Tensão (Microfone) & 0 a $V_{max}$             \\ \hline
-        \end{tabular}
-    \end{table}
-    \begin{block}{Conclusão}
-        Diferente do digital (degraus), o analógico não possui "saltos"; entre dois valores quaisquer, existe uma infinidade de valores intermediários.
-    \end{block}
-\end{frame}
+
 
 \begin{frame}{Representação Digital}
     \begin{itemize}
@@ -144,51 +132,48 @@
               \begin{itemize}
                   \item A variação ocorre em \textbf{incrementos discretos} (saltos).
                   \item Exemplo: Um termômetro digital que mede de $0,1^{\circ}\text{C}$ em $0,1^{\circ}\text{C}$.
-                  \item A temperatura real sobe de forma fluida, mas o visor "pula" de $22,0^{\circ}\text{C}$ para $22,1^{\circ}\text{C}$.
-              \end{itemize}
-    \end{itemize}
-    \vspace{0.3cm}
-    \begin{center}
-        \begin{tabular}{|c|c|}
-            \hline
-            \textbf{Analógica}    & \textbf{Digital}          \\ \hline
-            Contínua              & Discreta (Passo a passo)  \\ \hline
-            Infinidade de valores & Valores finitos/definidos \\ \hline
-        \end{tabular}
-    \end{center}
-\end{frame}
-
-\begin{frame}{Analógico vs. Digital}
-    \begin{itemize}
-        \item \textbf{Comparação Visual:}
-              \begin{itemize}
-                  \item O analógico é como uma \textbf{rampa} (suave).
-                  \item O digital é como uma \textbf{escada} (degraus).
+                  \item A temperatura real sobe de forma contínua, mas o visor "pula" de $22,0^{\circ}\text{C}$ para $22,1^{\circ}\text{C}$.
               \end{itemize}
         \item \textbf{Precisão e Resolução:}
               \begin{itemize}
                   \item No digital, a precisão depende do número de dígitos ou "passos" disponíveis no sistema.
               \end{itemize}
     \end{itemize}
+    \vspace{0.3cm}
+
+\end{frame}
+
+\begin{frame}{Analógico vs. Digital}
+
 
     \begin{block}{Diferença Fundamental}
         \centering
-        \textbf{Analógica $\equiv$ Contínua} \\
-        \textbf{Digital $\equiv$ Discreta}
+        \textbf{Analógica $->$ Contínua} \\
+        \textbf{Digital $->$ Discreta}
+    \end{block}
+
+    \begin{block}{Ou seja....}
+        Diferente do digital (que sobe em "degraus"), o analógico não possui "saltos em degraus"; entre dois valores quaisquer, existe uma infinidade de valores intermediários.
     \end{block}
 \end{frame}
 
-\begin{frame}{Ambiguidade vs. Precisão Digital}
+\begin{frame}{Leitura analógica vs. digital}
     \begin{itemize}
         \item \textbf{Interpretação Analógica:}
               \begin{itemize}
-                  \item Frequentemente sujeita a interpretação livre (ex: posição exata de um ponteiro entre dois traços).
+                  \item Frequentemente sujeita a "interpretação livre"
+                        \begin{itemize}
+                            \item ex: posição exata de um ponteiro entre dois traços
+                        \end{itemize}
                   \item Depende da percepção do observador.
               \end{itemize}
-        \item \textbf{Ausência de Ambiguidade Digital:}
+        \item \textbf{Leitura Digital:}
               \begin{itemize}
                   \item A leitura é direta e numérica.
-                  \item Não há dúvida sobre o valor exibido (ex: $22,5^{\circ}\text{C}$ é lido exatamente como tal).
+                  \item Não há dúvida sobre o valor exibido
+                        \begin{itemize}
+                            \item ex: $22,5^{\circ}\text{C}$ é lido exatamente
+                        \end{itemize}
               \end{itemize}
         \item \textbf{O Processo de Digitalização:}
               \begin{itemize}
@@ -240,9 +225,9 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Sistemas de Sinal Híbrido ou Misto}
+\begin{frame}{Sistemas Híbridos}
     \begin{itemize}
-        \item \textbf{Integração:} É comum o uso de ambas as técnicas em um mesmo projeto para aproveitar as vantagens específicas de cada uma.
+        \item \textbf{Integração:} É comum o uso de analógico e digital mesmo projeto para aproveitar as vantagens específicas de cada uma.
         \item \textbf{Desafio de Projeto:} Determinar quais partes do fluxo devem ser analógicas e quais devem ser digitais.
         \item \textbf{Tendência Atual:}
               \begin{enumerate}
@@ -259,46 +244,7 @@
 
 \end{frame}
 
-\begin{frame}{Evolução do Telefone: Um Sistema Híbrido}
-    \begin{itemize}
-        \item \textbf{A Visão de Bell:} Para utilidade real, os telefones precisavam funcionar em \textbf{rede}.
-        \item \textbf{Sinalização (Digital):}
-              \begin{itemize}
-                  \item Gerador a manivela produzia tensão para as campainhas.
-                  \item Cada usuário possuía um \textbf{código único} de toques (curtos e longos).
-                  \item \textbf{Codificação:} Feita manualmente pelo emissor ao girar a manivela.
-                  \item \textbf{Decodificação:} Feita mentalmente pelo receptor ao ouvir o padrão.
-              \end{itemize}
-        \item \textbf{Comunicação (Analógica):}
-              \begin{itemize}
-                  \item Uma vez estabelecida a conexão, a voz era transmitida de forma puramente analógica.
-              \end{itemize}
-    \end{itemize}
-    \emph{Conceito Histórico}:
-    O sistema de telefonia inicial já utilizava o conceito de \textbf{sinalização digital} para endereçamento e \textbf{transmissão analógica} para o conteúdo.
 
-\end{frame}
-
-\begin{frame}{Evolução: Telefones de Disco e Teclas}
-    \begin{itemize}
-        \item \textbf{Telefone de Disco (Pulsos):}
-              \begin{itemize}
-                  \item Sistema de numeração decimal representado por séries de pulsos.
-                  \item \textbf{Mecanismo:} A mola de retorno girava um eixo de came que abria/fechava contatos.
-                  \item \textbf{Exemplo:} 9 pulsos = número 9; 10 pulsos = número 0.
-                  \item \textbf{Decodificação:} Máquinas eletromecânicas interpretavam os pulsos para realizar a conexão automática.
-              \end{itemize}
-        \item \textbf{Telefone de Teclas (DTMF):}
-              \begin{itemize}
-                  \item \textbf{DTMF:} \textit{Dual Tone Multiple Frequency}.
-                  \item Cada dígito é representado por um sinal audível composto pela combinação de \textbf{duas frequências senoidais}.
-                  \item Circuitos eletrônicos reconhecem os tons e os traduzem em sequência digital.
-              \end{itemize}
-    \end{itemize}
-    \begin{block}{Integração}
-        A informação digital (números) é enviada via sinais analógicos (tons), demonstrando a coexistência histórica das duas tecnologias.
-    \end{block}
-\end{frame}
 
 \begin{frame}{Vantagens das Técnicas Digitais (1/2)}
     \begin{itemize}
@@ -353,7 +299,7 @@
                   \item Converter, processar e desconverter sinais exige tempo (latência), o que pode ser crítico em sistemas de altíssima velocidade.
               \end{itemize}
     \end{itemize}
-    \begin{exampleblock}{Exemplos de Sensores no Automóvel}
+    \begin{exampleblock}{Exemplos de Sensores em um Automóvel}
         Nível de combustível, temperatura do motor, acelerômetros (airbag) e sensores de pressão.
     \end{exampleblock}
 \end{frame}
@@ -514,69 +460,25 @@ void loop() {
     Nesse caso medimos a luz indiretamente através da tradução de grandezas elétricas
 \end{frame}
 
-\begin{frame}{Sistemas de Numeração Digital}
+\begin{frame}{Revisão e Introdução: Do Físico ao Binário}
     \begin{itemize}
-        \item \textbf{Panorama Geral:} Na tecnologia digital, utilizamos diferentes bases numéricas para finalidades específicas.
-        \item \textbf{Os Três Pilares:}
+        \item \textbf{Contexto:} Na aula passada, vimos que sistemas digitais operam com valores \textbf{discretos}.
+        \item \textbf{A Necessidade de Símbolos:} Para representar informações digitalmente, precisamos de dígitos.
+        \item \textbf{Por que apenas dois dígitos?}
               \begin{itemize}
-                  \item \textbf{Decimal (Base 10):} Sistema utilizado por humanos no dia a dia.
-                  \item \textbf{Binário (Base 2):} Linguagem nativa dos sistemas digitais (níveis lógicos).
-                  \item \textbf{Hexadecimal (Base 16):} Forma compacta que facilita para humanos a leitura e escrita de grandes sequências binárias.
+                  \item É mais simples e confiável construir dispositivos eletrônicos que reconheçam apenas dois estados:
+                  \item \textbf{Aberto} vs. \textbf{Fechado}
+                  \item \textbf{LOW} (Baixo) vs. \textbf{HIGH} (Alto)
+                  \item \textbf{0} vs. \textbf{1}
               \end{itemize}
     \end{itemize}
 
 
 
-    \begin{block}{Princípio Unificado}
-        Embora as bases sejam diferentes, todos esses sistemas funcionam sob a mesma lógica posicional. Entender a fundo o sistema decimal é a chave para dominar os demais.
+    \begin{block}{Sistema Binário}
+        Usa a base 2 para converter esses estados físicos em informação matemática.
     \end{block}
-\end{frame}
 
-\begin{frame}{Sistema Decimal (Base 10)}
-    \begin{itemize}
-        \item \textbf{Símbolos:} Composto por 10 dígitos: $\{0, 1, 2, 3, 4, 5, 6, 7, 8, 9\}$.
-        \item \textbf{Origem:} Evoluiu do uso dos dez dedos das mãos para contagem
-        \item \textit{dígito} vem do latim \textit{digitus}, "dedo".
-        \item \textbf{Sistema Posicional:} O valor de um dígito depende da sua posição no número.
-    \end{itemize}
-
-    \begin{exampleblock}{Exemplo: Número 453}
-        \centering
-        \begin{tabular}{c c c}
-            \textbf{4}        & \textbf{5}       & \textbf{3}        \\
-            Centenas ($10^2$) & Dezenas ($10^1$) & Unidades ($10^0$) \\
-        \end{tabular}
-    \end{exampleblock}
-
-    \begin{itemize}
-        \item \textbf{MSD (Most Significant Digit):} O dígito de maior peso (neste caso, o \textbf{4}).
-        \item \textbf{LSD (Least Significant Digit):} O dígito de menor peso (neste caso, o \textbf{3}).
-    \end{itemize}
-
-\end{frame}
-
-\begin{frame}{Valor Posicional e Potências de 10}
-    \begin{itemize}
-        \item \textbf{A Vírgula Decimal:} Atua como o separador entre a parte \textbf{inteira} (potências positivas) e a parte \textbf{fracionária} (potências negativas).
-        \item \textbf{Estrutura de Pesos:} Cada posição possui um peso que é uma potência de 10 ($10^n$).
-    \end{itemize}
-
-    \begin{exampleblock}{Decomposição do número 2745,214}
-        $$ (2 \times 10^3) + (7 \times 10^2) + (4 \times 10^1) + (5 \times 10^0) + (2 \times 10^{-1}) + (1 \times 10^{-2}) + (4 \times 10^{-3}) $$
-    \end{exampleblock}
-
-    \begin{itemize}
-        \item \textbf{Regra Geral:} Qualquer número é a soma dos produtos de cada dígito pelo seu valor posicional.
-    \end{itemize}
-
-
-\end{frame}
-
-\begin{frame}{Exemplo}
-    \begin{center}
-        \includegraphics[width=\textwidth]{Figuras/MSDLSD.png}
-
-    \end{center}
-
+    \vspace{0.3cm}
 
 \end{frame}

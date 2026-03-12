@@ -1,0 +1,76 @@
+\title{Aula 2 - Sistemas de Numeração Digital}
+
+
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+
+
+\begin{frame}{Sistemas de Numeração Digital}
+    \begin{itemize}
+        \item \textbf{Panorama Geral:} Na tecnologia digital, utilizamos diferentes bases numéricas para finalidades específicas.
+        \item \textbf{Os Três Pilares:}
+              \begin{itemize}
+                  \item \textbf{Decimal (Base 10):} Sistema utilizado por humanos no dia a dia.
+                  \item \textbf{Binário (Base 2):} Linguagem nativa dos sistemas digitais (níveis lógicos).
+                  \item \textbf{Hexadecimal (Base 16):} Forma compacta que facilita para humanos a leitura e escrita de grandes sequências binárias.
+              \end{itemize}
+    \end{itemize}
+
+
+
+    \begin{block}{Princípio Unificado}
+        Embora as bases sejam diferentes, todos esses sistemas funcionam sob a mesma lógica posicional. Entender a fundo o sistema decimal é a chave para dominar os demais.
+    \end{block}
+\end{frame}
+
+\begin{frame}{Sistema Decimal (Base 10)}
+    \begin{itemize}
+        \item \textbf{Símbolos:} Composto por 10 dígitos: $\{0, 1, 2, 3, 4, 5, 6, 7, 8, 9\}$.
+        \item \textbf{Origem:} Evoluiu do uso dos dez dedos das mãos para contagem
+        \item \textit{dígito} vem do latim \textit{digitus}, "dedo".
+        \item \textbf{Sistema Posicional:} O valor de um dígito depende da sua posição no número.
+    \end{itemize}
+
+    \begin{exampleblock}{Exemplo: Número 453}
+        \centering
+        \begin{tabular}{c c c}
+            \textbf{4}        & \textbf{5}       & \textbf{3}        \\
+            Centenas ($10^2$) & Dezenas ($10^1$) & Unidades ($10^0$) \\
+        \end{tabular}
+    \end{exampleblock}
+
+    \begin{itemize}
+        \item \textbf{MSD (Most Significant Digit):} O dígito de maior peso (neste caso, o \textbf{4}).
+        \item \textbf{LSD (Least Significant Digit):} O dígito de menor peso (neste caso, o \textbf{3}).
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Valor Posicional e Potências de 10}
+    \begin{itemize}
+        \item \textbf{A Vírgula Decimal:} Atua como o separador entre a parte \textbf{inteira} (potências positivas) e a parte \textbf{fracionária} (potências negativas).
+        \item \textbf{Estrutura de Pesos:} Cada posição possui um peso que é uma potência de 10 ($10^n$).
+    \end{itemize}
+
+    \begin{exampleblock}{Decomposição do número 2745,214}
+        $$ (2 \times 10^3) + (7 \times 10^2) + (4 \times 10^1) + (5 \times 10^0) + (2 \times 10^{-1}) + (1 \times 10^{-2}) + (4 \times 10^{-3}) $$
+    \end{exampleblock}
+
+    \begin{itemize}
+        \item \textbf{Regra Geral:} Qualquer número é a soma dos produtos de cada dígito pelo seu valor posicional.
+    \end{itemize}
+
+
+\end{frame}
+
+\begin{frame}{Exemplo}
+    \begin{center}
+        \includegraphics[width=\textwidth]{Figuras/MSDLSD.png}
+
+    \end{center}
+
+
+\end{frame}
