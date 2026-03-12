@@ -1,0 +1,22 @@
+\frametitle{Exemplo Prático: Leitura Analógica (Arduino)}
+\begin{itemize}
+        \item Captura de um sinal analógico e sua conversão digital via \textbf{ADC}.
+        \item A função \texttt{analogRead()} transforma a tensão no pino A0 em um valor digital.
+    \end{itemize}
+
+    \begin{exampleblock}{Código de Leitura do LDR}
+        \begin{verbatim}
+int ldr = A0;
+int valorldr = 0;
+
+void setup() {
+  pinMode(ldr, INPUT);
+  Serial.begin(9600);
+}
+void loop() {
+   valorldr = analogRead(ldr);
+   Serial.print("Valor lido pelo LDR = ");
+   Serial.println(valorldr);
+}
+\end{verbatim}
+    \end{exampleblock}

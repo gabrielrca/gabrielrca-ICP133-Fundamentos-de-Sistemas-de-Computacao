@@ -1,0 +1,23 @@
+# ICP133 - Fundamentos de sistemas de Computação
+
+Este repositório contém os slides utilizados na disciplina **ICP133 - Fundamentos de sistemas de Computação** do **Instituto de Computação da UFRJ**.
+
+O material foi desenvolvido por mim (Gabriel Caldas) em **LaTeX/Beamer**, com foco em apoiar as aulas da disciplina e servir como referência para os alunos.  
+Os slides acompanham o conteúdo programático da disciplina.
+
+## Sugestões, erros ou informaçoes
+Caso encontre algum erro, queira sugerir alguma coisa ou deseje pedir alguma informação, entre em contato! :)
+
+gabrielaquino AT ic.ufrj.br
+
+## Estrutura
+
+- `ICP133-Listas` → Listas de exercícios criadas para a disciplina
+- `ICP133-Slides` → Slides dos temas abordados em aula 
+- `ICP133-Codigo` → Códigos abordados em aula 
+
+
+## Observação
+
+Este repositório contém o material de apoio didático e está em constante modificação.  
+O uso é destinado aos alunos matriculados na disciplina e a outros interessados no tópico.
