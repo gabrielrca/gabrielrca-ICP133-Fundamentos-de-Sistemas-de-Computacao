@@ -1,0 +1,57 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[portuguese]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+% Configuração da página
+\geometry{
+    a4paper,
+    left=2.5cm,
+    right=2.5cm,
+    top=2.5cm,
+    bottom=2.5cm
+}
+
+% Configuração do cabeçalho e rodapé
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Listas de Exercícios}
+\fancyhead[R]{\leftmark}
+\fancyfoot[C]{\thepage}
+
+% Comando para iniciar nova lista em página ímpar (opcional)
+\newcommand{\novalista}[1]{%
+    \clearpage
+    \section*{Lista #1}
+    \addcontentsline{toc}{section}{Lista #1}
+    \markboth{Lista #1}{Lista #1}
+}
+
+\begin{document}
+
+% Capa (opcional)
+\begin{titlepage}
+    \centering
+    \vspace*{5cm}
+    {\Huge \textbf{Listas de Exercícios}}\\[1cm]
+    {\Large ICP133 -  Fundamentos de Sistemas de Computação}\\[0.5cm]
+    {\large Prof. Gabriel Rodrigues Caldas de Aquino}\\[0.5cm]
+    {\large \today}
+\end{titlepage}
+
+% Sumário
+\tableofcontents
+\clearpage
+
+% Incluir as listas
+\input{lista01}
+\input{lista02}
+\input{lista03}
+% Adicione mais listas conforme necessário
+
+\end{document}
