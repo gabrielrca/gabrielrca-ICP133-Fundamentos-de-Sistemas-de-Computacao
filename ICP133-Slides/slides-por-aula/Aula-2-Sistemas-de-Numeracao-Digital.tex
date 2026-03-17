@@ -427,7 +427,7 @@
 \end{frame}
 
 
-\begin{frame}{Conversão de Base $B$ para Base 10}
+\begin{frame}{Conversão de uma base qualquer para base 10}
     Para converter um número de qualquer base $B$ para a base $10$, aplicamos a definição da notação posicional, realizando os cálculos na base 10:
 
     \begin{block}{Fórmula Única}
@@ -444,9 +444,9 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Exemplos de Conversão: Binário e Octal}
+\begin{frame}{Exemplos - Conversão de Binário e Octal para a base 10}
     \begin{itemize}
-        \item \textbf{De Binário ($B=2$):} $10100,1_2$
+        \item \textbf{Converver de Binário ($B=2$) para decimal:} $10100,1_2$
               {\small
               $$ (1 \times 2^4) + (0 \times 2^3) + (1 \times 2^2) + (0 \times 2^1) + (0 \times 2^0) + (1 \times 2^{-1}) $$
               $$ 16 + 0 + 4 + 0 + 0 + 0,5 = \mathbf{20,5_{10}} $$
@@ -454,7 +454,7 @@
 
               \vspace{0.4cm}
 
-        \item \textbf{De Octal ($B=8$):} $253_8$
+        \item \textbf{Converver de Octal ($B=8$) para decimal:} $253_8$
               {\small
                       $$ (2 \times 8^2) + (5 \times 8^1) + (3 \times 8^0) $$
                       $$ (2 \times 64) + (5 \times 8) + (3 \times 1) $$
@@ -465,7 +465,7 @@
 
 \begin{frame}{Exemplos de Conversão: Hexadecimal}
     \begin{itemize}
-        \item \textbf{De Hexadecimal ($B=16$):} $C3_{16}$
+        \item \textbf{Converver de Hexadecimal ($B=16$) para decimal:} $C3_{16}$
     \end{itemize}
 
     \begin{exampleblock}{Lembrete Importante}
@@ -492,7 +492,34 @@
     \end{center}
 \end{frame}
 
-\begin{frame}{Conversão de Decimal para Base $B$}
+\begin{frame}{Resposta $11011,01_2$ para decimal}
+    \begin{center}
+        \includegraphics[width=0.9\textwidth]{Figuras/11011-01-to-dec.png}
+
+    \end{center}
+
+    $11011,01_2 = 27,25_{10}$
+\end{frame}
+
+\begin{frame}{Resposta $702_8$ para decimal}
+    \begin{center}
+        \includegraphics[width=0.9\textwidth]{Figuras/702-to-dec.png}
+
+    \end{center}
+
+    $702_8 = 450_{10}$
+\end{frame}
+
+\begin{frame}{Resposta $BF_{16}$ para decimal}
+    \begin{center}
+        \includegraphics[width=0.5\textwidth]{Figuras/BF-to-dec.png}
+
+    \end{center}
+
+    $BF_{16} = 191_{10}$
+\end{frame}
+
+\begin{frame}{Conversão de Decimal para uma base qualquer}
     \begin{itemize}
         \item \textbf{O Método:} Divisões Sucessivas pela base de destino.
         \item \textbf{Propriedade 1:} O resto da primeira divisão é o dígito de menor peso ($b_0$).
@@ -500,7 +527,7 @@
         \item \textbf{Encerramento:} O processo termina quando o \textbf{quociente é zero}.
     \end{itemize}
 
-    \begin{block}{Regra de Ouro}
+    \begin{block}{Formando o número}
         O resultado é formado pela leitura dos \textbf{restos} na ordem \textbf{inversa} (do último para o primeiro).
     \end{block}
 \end{frame}
@@ -520,7 +547,27 @@
     \end{exampleblock}
 \end{frame}
 
-\begin{frame}{Conversão Mecânica: $352_{10}$ para Octal}
+\begin{frame}{Exemplo do método das divisões sucessivas}
+    \begin{center}
+        \includegraphics[width=0.7\textwidth]{Figuras/159-to-bin.png}
+
+    \end{center}
+
+    $159_{10} = 10011111_{2}$
+\end{frame}
+
+\begin{frame}{Exemplo do método das divisões sucessivas}
+    \begin{center}
+        \includegraphics[width=0.7\textwidth]{Figuras/38-to-bin.png}
+
+    \end{center}
+
+    $38_{10} = 100110_{2}$
+\end{frame}
+
+
+
+\begin{frame}{Conversão: $352_{10}$ para Octal}
     Utilizar uma tabela ajuda a organizar o processo para números maiores:
 
     \begin{table}[]
@@ -540,33 +587,39 @@
     \end{itemize}
 \end{frame}
 
+\begin{frame}{Exemplo do método das divisões sucessivas}
+    \begin{center}
+        \includegraphics[width=0.7\textwidth]{Figuras/352-to-oct.png}
+
+    \end{center}
+
+    $352_{10} = 540_8$
+\end{frame}
+
 \begin{frame}{Conversão de $352_{10}$ para Binário}
-    \begin{columns}
-        \begin{column}{0.6\textwidth}
-            \centering
-            \resizebox{\textwidth}{!}{
-                \begin{tabular}{|c|c|c|c|c|}
-                    \hline
-                    \textbf{Índice} & \textbf{Dividendo} & \textbf{Divisor} & \textbf{Quociente} & \textbf{Resto} \\ \hline
-                    0               & 352                & 2                & 176                & \textbf{0}     \\ \hline
-                    1               & 176                & 2                & 88                 & \textbf{0}     \\ \hline
-                    2               & 88                 & 2                & 44                 & \textbf{0}     \\ \hline
-                    3               & 44                 & 2                & 22                 & \textbf{0}     \\ \hline
-                    4               & 22                 & 2                & 11                 & \textbf{0}     \\ \hline
-                    5               & 11                 & 2                & 5                  & \textbf{1}     \\ \hline
-                    6               & 5                  & 2                & 2                  & \textbf{1}     \\ \hline
-                    7               & 2                  & 2                & 1                  & \textbf{0}     \\ \hline
-                    8               & 1                  & 2                & 0                  & \textbf{1}     \\ \hline
-                \end{tabular}
-            }
-        \end{column}
-        \begin{column}{0.4\textwidth}
-            \begin{block}{Resultado}
-                Lendo os restos do índice 8 ao 0:
-                $$\mathbf{101100000_2}$$
-            \end{block}
-        \end{column}
-    \end{columns}
+
+    \centering
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{|c|c|c|c|c|}
+            \hline
+            \textbf{Índice} & \textbf{Dividendo} & \textbf{Divisor} & \textbf{Quociente} & \textbf{Resto} \\ \hline
+            0               & 352                & 2                & 176                & \textbf{0}     \\ \hline
+            1               & 176                & 2                & 88                 & \textbf{0}     \\ \hline
+            2               & 88                 & 2                & 44                 & \textbf{0}     \\ \hline
+            3               & 44                 & 2                & 22                 & \textbf{0}     \\ \hline
+            4               & 22                 & 2                & 11                 & \textbf{0}     \\ \hline
+            5               & 11                 & 2                & 5                  & \textbf{1}     \\ \hline
+            6               & 5                  & 2                & 2                  & \textbf{1}     \\ \hline
+            7               & 2                  & 2                & 1                  & \textbf{0}     \\ \hline
+            8               & 1                  & 2                & 0                  & \textbf{1}     \\ \hline
+        \end{tabular}
+    }
+    \\
+
+    Lendo os restos do índice 8 ao 0:
+    $101100000_2$
+
+
 \end{frame}
 
 \begin{frame}{Exercício}
@@ -574,14 +627,184 @@
     Escreva sua \textbf{idade} e o \textbf{ano atual} nas seguintes bases, utilizando o método das divisões sucessivas:
 
     \begin{enumerate}[a)]
-        \item Base 10 (apenas para referência)
+        \item Base 11
         \item Base 2
         \item Base 8
         \item Base 16
     \end{enumerate}
 
+
+\end{frame}
+
+\begin{frame}{Casos especiais onde uma base é potência da outra}
+
+
+
+    \begin{itemize}
+        \item Para converter de uma base para outra qualquer, sempre é possível
+              converter para a base 10 e em seguida da
+              base 10 para a base final.
+
+        \item No entanto, em alguns casos (quando uma base é uma potência da outra)
+              pode-se evitar esse trabalho.
+
+        \item As técnicas para as bases mais usadas em computação (2, 8 e 16) são exemplificadas a seguir.
+    \end{itemize}
+
+
+
+
+\end{frame}
+
+\begin{frame}{Conversão de números em base 8 para base 2}
+
+
+    \begin{itemize}
+        \item A base octal (8) é uma potência da base binária (2): $8 = 2^3$.
+        \item Isso permite uma conversão direta e simplificada.
+        \item Vamos desenvolver o raciocínio por trás do método.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Passo 1: Expansão posicional - Reescrevendo na base 2}
+
+
+    Considere o número $253_8$:
+
+    \begin{align*}
+        253_8 & = 3 \times 8^0 + 5 \times 8^1 + 2 \times 8^2                                    \\
+              & = 3 \times (2^3)^0 + 5 \times (2^3)^1 + 2 \times (2^3)^2                        \\
+              & = 3 \times 2^{(3 \times 0)} + 5 \times 2^{3 \times 1} + 2 \times 2^{3 \times 2} \\
+              & = 3 \times 2^0 + 5 \times 2^{3} + 2 \times 2^{6}
+    \end{align*}
+
+\end{frame}
+
+\begin{frame}{Passo 2: Tentativa inicial}
+
+
+    \begin{itemize}
+        \item Temos os coeficientes $3$, $5$ e $2$ multiplicando potências de $2$.
+        \item Seria tentador escrever $2005003_2$, colocando cada dígito em sua posição (0, 3 e 6).
+
+        \item \textbf{Problema:} $2$, $5$ e $3$ \textbf{não são dígitos válidos} na base binária (que só aceita $0$ e $1$).
+        \item Precisamos traduzir esses valores ($3$, $5$ e $2$) para sua representação binária.
+    \end{itemize}
+
+
+    \textbf{ATENÇÃO}, nessa hora tome cuidado com mistura de bases
+
+\end{frame}
+
+\begin{frame}{Passo 3: Decomposição dos coeficientes}
+    \emph{Transformando $3$, $5$ e $2$ em somas de potências de 2}
+
+    \begin{align*}
+        3 & = 1 + 2 =  1 \times 2^0 + 1 \times 2^1 \\
+        5 & = 1 + 4 =  1 \times 2^0 + 1 \times 2^2 \\
+        2 & = 0 + 2 =  1 \times 2^1
+    \end{align*}
+
+\end{frame}
+
+\begin{frame}{Passo 4: Substituição e desenvolvimento}
+
+
+    \begin{align*}
+        253_8 & =  3 \times 2^0 + 5 \times 2^{3} + 2 \times 2^{6}     \\
+              & = (1 \times 2^0 + 1 \times 2^1) \times 2^0 \; +       \\
+              & \quad (1 \times 2^0 + 1 \times 2^2) \times 2^{3} \; + \\
+              & \quad (1 \times 2^1) \times 2^{6}
+    \end{align*}
+
+\end{frame}
+
+\begin{frame}{Passo 5: Simplificação}
+
+
+    Distribuindo e somando os expoentes:
+
+    \begin{align*}
+        253_8 & = (1 \times 2^{0}) + (1 \times 2^{1}) \; +     \\
+              & \quad (1 \times 2^{3}) + (1 \times 2^{5}) \; + \\
+              & \quad (1 \times 2^{7})                         \\[0.5cm]
+              & = 2^0 + 2^1 + 2^3 + 2^5 + 2^7
+    \end{align*}
+
+\end{frame}
+
+\begin{frame}{Passo 6: O número binário resultante}
+
+
+    A soma das potências de 2 nos dá a representação binária final:
+
+    \[
+        2^0 + 2^1 + 2^3 + 2^5 + 2^7 = 10101011_2
+    \]
+
+    Ou seja, $253_8 = 10101011_2$.
+
+\end{frame}
+
+\begin{frame}{Passo-a-passo feito a mão}
+    \begin{center}
+        \includegraphics[width=\textwidth]{Figuras/conversao-direta-metodo.png}
+
+    \end{center}
+
+
+\end{frame}
+
+\begin{frame}{Consequência do resultado anterior}
+
+
+    O desenvolvimento anterior justifica o método que vamos realmente aplicar:
+
+    \begin{block}{Como fazer?}
+        Cada símbolo da representação \textbf{octal} deve ser expandido em sua representação com \textbf{3 bits}.
+    \end{block}
+
+    \begin{itemize}
+        \item Devem-se usar \textbf{zeros à esquerda} para completar os 3 bits em símbolos menores que 4 ($100_2$).
+    \end{itemize}
+
     \vspace{0.3cm}
-    \begin{alertblock}{Atenção no Hexadecimal!}
-        Se o resto for entre 10 e 15, não esqueça de converter para as letras \textbf{A} a \textbf{F} no resultado final.
+    \textbf{Exemplo:} Sabendo que $2_8 = 010_2$, $5_8 = 101_2$ e $3_8 = 011_2$:
+
+    \begin{itemize}
+        \item $253_8 = \underbrace{010}_{2} \text{ concat. com } \underbrace{101}_{5} \text{ concat. com } \underbrace{011}_{3}$
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Exemplo fazendo a concatenação}
+
+
+    Ao realizar a junção dos grupos de 3 bits, temos:
+
+    \begin{exampleblock}{Conversão Final}
+        $$253_8 = 010101011_2$$
+    \end{exampleblock}
+
+    \vspace{0.5cm}
+    \begin{itemize}
+        \item $253_8 = 10101011_2$
+    \end{itemize}
+
+    \begin{alertblock}{Observação Importantíssima}
+        O zero mais à esquerda ($010...$) pode ser \textbf{omitido}, uma vez que a concatenação foi finalizada e ele não altera o valor do número.
     \end{alertblock}
+\end{frame}
+
+\begin{frame}{Exercício}
+    Converta \textbf{sem passar para a base 10} os seguintes números da base 8 para a base 2:
+
+
+    \begin{enumerate}[a)]
+        \item $20_8$
+        \item $7_8$
+        \item $407_8$
+        \item $2022_8$
+
+    \end{enumerate}
 \end{frame}

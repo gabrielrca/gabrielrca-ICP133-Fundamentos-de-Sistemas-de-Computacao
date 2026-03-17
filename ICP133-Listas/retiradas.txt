@@ -1,0 +1,56 @@
+    \item \textbf{Conversão A/D e D/A}
+
+          Em sistemas que processam sinais do mundo real (como áudio, vídeo, temperatura, etc.), é comum utilizar a seguinte arquitetura:
+
+          \begin{center}
+              \framebox[0.8\textwidth][c]{
+                  \begin{minipage}{0.7\textwidth}
+                      \centering
+                      Sinal Analógico $\rightarrow$ \textbf{Conversão A/D} $\rightarrow$ Processamento Digital $\rightarrow$ \textbf{Conversão D/A} $\rightarrow$ Sinal Analógico
+                  \end{minipage}
+              }
+          \end{center}
+
+          Responda:
+
+          \begin{enumerate}
+              \item Explique por que, na maioria das aplicações, se prefere fazer a conversão analógico-digital (A/D) o mais cedo possível no processo.
+
+              \item Explique por que se prefere fazer a conversão digital-analógico (D/A) o mais tarde possível no processo.
+
+              \item Quais são as vantagens de processar o sinal digitalmente em vez de processá-lo diretamente na forma analógica?
+
+          \end{enumerate}
+
+    \item \textbf{Questão do Ruído e Degradação}
+
+          Considere um sinal de áudio que precisa ser transmitido de um estúdio de gravação até a casa do ouvinte.
+
+          \begin{enumerate}
+              \item Se este sinal for mantido em formato analógico durante toda a cadeia (gravação, transmissão e reprodução), que problemas podem ocorrer?
+
+              \item Como a digitalização precoce do sinal ajuda a minimizar esses problemas?
+
+              \item Explique com as suas palavras o que seria a "imunidade a ruído" dos sistemas digitais.
+          \end{enumerate}
+
+
+
+
+    \item \textbf{Questão Prática - Projeto de um Termômetro}
+
+          Você precisa projetar um termômetro digital que mede a temperatura ambiente e mostra em um display LCD.
+
+          \begin{enumerate}
+              \item Desenhe um diagrama de blocos completo do sistema, identificando:
+                    \begin{itemize}
+                        \item A parte analógica
+                        \item A parte digital
+                        \item Onde está o conversor A/D
+                        \item Onde está o conversor D/A (se houver)
+                    \end{itemize}
+
+              \item Explique o fluxo do sinal desde o sensor de temperatura até o display.
+
+              \item Se o display fosse analógico (como um termômetro de mercúrio tradicional), como o sistema seria diferente?
+          \end{enumerate}
