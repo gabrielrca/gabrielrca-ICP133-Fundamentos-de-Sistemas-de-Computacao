@@ -579,3 +579,140 @@
     \centering
     \textbf{Resultado:} Quociente = $101_2$ | Resto = $1_2$
 \end{frame}
+
+
+\begin{frame}{Casos Particulares: Multiplicação e Divisão por $B^n$}
+    Operações por potências da base ($B^n$) são simplificadas pelo \textbf{deslocamento da vírgula}.
+
+    \begin{itemize}
+        \item \textbf{Multiplicação ($\times B^n$):} Desloca-se a vírgula para a \textbf{direita} (acrescentando zeros se necessário).
+        \item \textbf{Divisão ($\div B^n$):} Desloca-se a vírgula para a \textbf{esquerda}.
+    \end{itemize}
+
+    \begin{block}{Analogia no Sistema Decimal}
+        \begin{itemize}
+            \item $12 \times 10^1 = 120$ (acrescenta um 0)
+            \item $120 \div 10^1 = 12$ (remove um 0 ou desloca a vírgula)
+        \end{itemize}
+    \end{block}
+
+    \textit{Essa lógica é idêntica para a base 2, substituindo 10 por 2.}
+\end{frame}
+
+\begin{frame}{Multiplicação por Potência de 2 ($2^n$)}
+    Para multiplicar um binário por $2^n$, basta acrescentar $n$ zeros ao final do número.
+
+    \begin{exampleblock}{Exemplos Práticos}
+        \begin{itemize}
+            \item \textbf{$11_2 \times 2^1$:} $3_{10} \times 2 = 6_{10} \rightarrow \mathbf{110_2}$
+            \item \textbf{$101_2 \times 2^1$:} $5_{10} \times 2 = 10_{10} \rightarrow \mathbf{1010_2}$
+        \end{itemize}
+    \end{exampleblock}
+
+    \begin{itemize}
+        \item \textbf{Exercício 18:} Realize as multiplicações na base 2:
+              \begin{enumerate}[a)]
+                  \item $111 \times 2^1 = \dots$
+                  \item $110 \times 2^2 = \dots$
+                  \item $11 \times 2^3 = \dots$
+              \end{enumerate}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Divisão por Potência de 2 ($2^n$)}
+    Para dividir um binário por $2^n$, deslocamos a vírgula $n$ casas para a \textbf{esquerda}.
+
+    \begin{exampleblock}{Exemplos Práticos}
+        \begin{itemize}
+            \item \textbf{$110_2 \div 2^1$:} $6_{10} \div 2 = 3_{10} \rightarrow \mathbf{11_2}$
+            \item \textbf{$1000_2 \div 2^2$:} $8_{10} \div 4 = 2_{10} \rightarrow \mathbf{10_2}$
+            \item \textbf{$111_2 \div 2^1$:} $7_{10} \div 2 = 3,5_{10} \rightarrow \mathbf{11,1_2}$
+        \end{itemize}
+    \end{exampleblock}
+
+    \begin{block}{Prova Real ($11,1_2$)}
+        $ (1 \times 2^1) + (1 \times 2^0) + (1 \times 2^{-1}) = 2 + 1 + 0,5 = \mathbf{3,5_{10}} $
+    \end{block}
+\end{frame}
+
+\begin{frame}{Exercício 19: Divisão na Base 2}
+    Efetue as divisões deslocando a vírgula conforme a potência de 2:
+
+    \begin{enumerate}[a)]
+        \item $1010 \div 2^1$
+        \item $1100 \div 2^2$
+        \item $11000 \div 2^3$
+        \item $101 \div 2^1$
+    \end{enumerate}
+
+    \vspace{0.5cm}
+    \begin{alertblock}{Dica}
+        Se o número original não tiver zeros suficientes para "cortar", a vírgula (que estava implícita à direita) deve aparecer e caminhar para a esquerda.
+    \end{alertblock}
+\end{frame}
+
+\begin{frame}{Tabela de Potências de 2 ($2^0$ a $2^{32}$)}
+    \centering
+
+    \begin{columns}[t]
+        % Primeira Coluna com Binário
+        \begin{column}{0.38\textwidth}
+            \centering
+            \begin{tabular}{|c|r|r|}
+                \hline
+                \textbf{$n$} & \textbf{$2^n$} & \textbf{Na Base 2} \\ \hline
+                0            & 1              & 1                  \\ \hline
+                1            & 2              & 10                 \\ \hline
+                2            & 4              & 100                \\ \hline
+                3            & 8              & 1000               \\ \hline
+                4            & 16             & 10000              \\ \hline
+                5            & 32             & 100000             \\ \hline
+                6            & 64             & 1000000            \\ \hline
+                7            & 128            & 10000000           \\ \hline
+                8            & 256            & 100000000          \\ \hline
+                9            & 512            & 1000000000         \\ \hline
+                10           & 1.024          & 10000000000        \\ \hline
+            \end{tabular}
+        \end{column}
+
+        % Segunda Coluna
+        \begin{column}{0.28\textwidth}
+            \centering
+            \begin{tabular}{|c|r|}
+                \hline
+                \textbf{$n$} & \textbf{$2^n$} \\ \hline
+                11           & 2.048          \\ \hline
+                12           & 4.096          \\ \hline
+                13           & 8.192          \\ \hline
+                14           & 16.384         \\ \hline
+                15           & 32.768         \\ \hline
+                16           & 65.536         \\ \hline
+                17           & 131.072        \\ \hline
+                18           & 262.144        \\ \hline
+                19           & 524.288        \\ \hline
+                20           & 1.048.576      \\ \hline
+                21           & 2.097.152      \\ \hline
+            \end{tabular}
+        \end{column}
+
+        % Terceira Coluna
+        \begin{column}{0.32\textwidth}
+            \centering
+            \begin{tabular}{|c|r|}
+                \hline
+                \textbf{$n$} & \textbf{$2^n$} \\ \hline
+                22           & 4.194.304      \\ \hline
+                23           & 8.388.608      \\ \hline
+                24           & 16.777.216     \\ \hline
+                25           & 33.554.432     \\ \hline
+                26           & 67.108.864     \\ \hline
+                27           & 134.217.728    \\ \hline
+                28           & 268.435.456    \\ \hline
+                29           & 536.870.912    \\ \hline
+                30           & 1.073.741.824  \\ \hline
+                31           & 2.147.483.648  \\ \hline
+                32           & 4.294.967.296  \\ \hline
+            \end{tabular}
+        \end{column}
+    \end{columns}
+\end{frame}

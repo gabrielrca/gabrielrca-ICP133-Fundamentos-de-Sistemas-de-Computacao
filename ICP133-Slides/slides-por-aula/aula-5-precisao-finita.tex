@@ -1,0 +1,136 @@
+\section{Números de Precisão Finita}
+\title{Aula 5 - Precisão Finita}
+
+
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+
+\begin{frame}{Números de Precisão Finita}
+    \begin{itemize}
+        \item \textbf{No papel:} Usamos quantos dígitos forem necessários.
+        \item \textbf{No Computador:} O espaço (memória) é limitado e definido no projeto do hardware.
+    \end{itemize}
+
+    \begin{block}{Definição}
+        Computadores lidam com uma quantidade \textbf{fixa} de dígitos. Isso nos força a trabalhar com um conjunto limitado de valores representáveis.
+    \end{block}
+
+    \vspace{0.3cm}
+    \textbf{O que estudaremos nesta seção:}
+    \begin{itemize}
+        \item Propriedades algébricas na precisão finita.
+        \item Cálculo da quantidade de valores representáveis na base $B$.
+        \item Representação de números inteiros com sinal.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Limitações da Precisão Finita}
+    Considere um sistema hipotético que usa apenas \textbf{3 dígitos decimais} (000 a 999):
+
+    \begin{itemize}
+        \item \textbf{Valores impossíveis de representar:}
+              \begin{itemize}
+                  \item Maiores que 999 (Ex: 1000, 1500).
+                  \item Menores que 0 (Ex: -1, -50).
+                  \item Frações e números irracionais (Ex: 0,5 ou $\pi$).
+              \end{itemize}
+    \end{itemize}
+
+    \begin{alertblock}{Quebra de Propriedades}
+        Diferente da matemática tradicional, os números de precisão finita \textbf{não possuem a propriedade de fechamento}.
+    \end{alertblock}
+\end{frame}
+
+\begin{frame}{A Propriedade de Fechamento}
+    \begin{itemize}
+        \item \textbf{Na Matemática (Conjunto $\mathbb{Z}$):} Para qualquer $i, j$, os resultados de $i+j, i-j$ e $i \times j$ também são inteiros.
+        \item \textbf{No Computador:} O resultado de uma operação pode "escapar" da faixa permitida.
+    \end{itemize}
+
+    \begin{exampleblock}{Exemplos de Falha (Sistema de 3 dígitos)}
+        \begin{itemize}
+            \item \textbf{Soma:} $900 + 500 = 1400$ \hfill \textit{(Lupa: Cabe apenas 400?)}
+            \item \textbf{Subtração:} $1 - 2 = -1$ \hfill \textit{(Não há sinal negativo)}
+            \item \textbf{Multiplicação:} $100 \times 10 = 1000$ \hfill \textit{(Estourou o limite)}
+        \end{itemize}
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}{O Erro de Overflow}
+    \begin{center}
+        \Large \color{red} \textbf{OVERFLOW}
+    \end{center}
+
+    \begin{itemize}
+        \item \textbf{O que é:} Ocorre quando o resultado de uma operação aritmética está fora da faixa de valores que o sistema consegue representar.
+        \item \textbf{Analogia:} É como um hodômetro de carro que chega em 999.999km e volta para 000.000km.
+    \end{itemize}
+
+    \begin{block}{Impacto no Software}
+        Se o programador não previr o overflow, o computador pode produzir resultados bizarros (como somar dois números positivos e obter um número negativo ou um valor muito pequeno).
+    \end{block}
+\end{frame}
+
+\begin{frame}{Propriedades Algébricas na Precisão Finita}
+    Diferente da Matemática Clássica, onde os conjuntos numéricos são infinitos, o hardware precisa lidar com limites físicos. Isso afeta como as propriedades algébricas se comportam.
+
+    \begin{block}{Detecção de Erro}
+        No caso de \textbf{overflow}, o hardware (CPU) é projetado para identificar o estouro de capacidade e emitir um aviso (\textit{flag}) para o sistema operacional.
+    \end{block}
+
+    \vspace{0.4cm}
+    Vamos analisar as três propriedades fundamentais:
+    \begin{enumerate}
+        \item \textbf{Comutatividade}
+        \item \textbf{Associatividade}
+        \item \textbf{Distributividade}
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Comutatividade e Associatividade}
+    \begin{itemize}
+        \item \textbf{Comutatividade:} Mantém-se inalterada.
+              \begin{itemize}
+                  \item $a + b = b + a$
+                  \item $a \times b = b \times a$
+                  \item A ordem dos operandos não altera o resultado, mesmo que ocorra overflow.
+              \end{itemize}
+
+              \vspace{0.3cm}
+
+        \item \textbf{Associatividade:} É satisfeita, \textbf{desde que o resultado final seja válido}.
+              \begin{itemize}
+                  \item $(a + b) + c = a + (b + c)$
+                  \item $(a \times b) \times c = a \times (b \times c)$
+              \end{itemize}
+    \end{itemize}
+
+    \begin{alertblock}{Associatividade}
+        Se o resultado final estiver dentro da capacidade de representação, o valor será o mesmo. Se houver overflow, ele ocorrerá independentemente da ordem de execução, tornando o resultado inválido em ambos os casos.
+    \end{alertblock}
+\end{frame}
+
+
+\begin{frame}{Distributividade na Precisão Finita}
+    A última propriedade fundamental é a \textbf{Distributividade} da multiplicação sobre a adição:
+
+    \begin{block}{Fórmula}
+        $$ a \times (b + c) = (a \times b) + (a \times c) $$
+    \end{block}
+
+    \begin{itemize}
+        \item \textbf{No Computador:} A propriedade se mantém válida para números inteiros.
+        \item \textbf{A Ressalva:} Assim como na associatividade, a igualdade é garantida se:
+              \begin{enumerate}
+                  \item O resultado final for \textbf{válido} (dentro da faixa representável).
+                  \item \textbf{OU} se ambos os caminhos de cálculo resultarem em um valor \textbf{inválido} (Overflow).
+              \end{enumerate}
+    \end{itemize}
+
+    \begin{alertblock}{Conclusão das Propriedades}
+        Para \textbf{Inteiros}, a Álgebra de Precisão Finita tenta mimetizar a Álgebra Clássica. O maior "vilão" não é a quebra das regras de ordem, mas sim o \textbf{estouro do limite de bits}.
+    \end{alertblock}
+\end{frame}
