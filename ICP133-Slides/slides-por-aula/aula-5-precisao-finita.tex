@@ -134,3 +134,258 @@
         Para \textbf{Inteiros}, a Álgebra de Precisão Finita tenta mimetizar a Álgebra Clássica. O maior "vilão" não é a quebra das regras de ordem, mas sim o \textbf{estouro do limite de bits}.
     \end{alertblock}
 \end{frame}
+
+\begin{frame}{Por que as Propriedades importam?}
+    Mesmo sem decorar os nomes, usamos essas regras para simplificar cálculos no dia a dia:
+
+    \begin{itemize}
+        \item \textbf{Comutatividade + Associatividade:} Permitem somar uma lista de números em qualquer ordem (ex: agrupar números que somam 10 para facilitar a conta de cabeça).
+        \item \textbf{Distributividade:} É a base para \textbf{colocar fatores em evidência} em expressões algébricas.
+    \end{itemize}
+
+    \begin{block}{No Computador}
+        Essas manipulações são usadas pelos \textbf{Compiladores} para otimizar o código, reorganizando as operações para que o processador as execute de forma mais rápida.
+    \end{block}
+\end{frame}
+
+\subsection{Capacidade de Representação}
+
+\begin{frame}{Quantos números cabem no sistema?}
+    Para entender a capacidade de um hardware, precisamos resolver um problema de contagem:
+
+    \begin{exampleblock}{O Problema}
+        Dados $B$ símbolos diferentes, de quantas maneiras podemos preencher $n$ posições distintas (onde a ordem importa e símbolos podem se repetir)?
+    \end{exampleblock}
+
+    \begin{itemize}
+        \item \textbf{Posição 0:} $B$ opções.
+        \item \textbf{Posição 1:} $B$ opções.
+        \item \dots
+        \item \textbf{Posição $n-1$:} $B$ opções.
+    \end{itemize}
+
+    \begin{center}
+        \Large \textbf{Total de Combinações = $B^n$}
+    \end{center}
+\end{frame}
+
+\begin{frame}{Princípio Multiplicativo: $B^n$}
+    A fórmula $B^n$ surge do princípio fundamental da contagem:
+
+    \begin{itemize}
+        \item Com \textbf{1 posição}: $B$ possibilidades.
+        \item Com \textbf{2 posições}: $B \times B = B^2$ possibilidades.
+        \item Com \textbf{3 posições}: $B \times B \times B = B^3$ possibilidades.
+    \end{itemize}
+
+
+
+    \begin{block}{Exemplo em Binário ($B=2$)}
+        Se um computador usa **8 bits** ($n=8$):
+        $$ 2^8 = 256 \text{ combinações diferentes} $$
+        Se ele usa 10 bits:
+        $$ 2^{10} = 1.024 \text{ combinações} $$
+    \end{block}
+\end{frame}
+
+\begin{frame}{Exercícios: Capacidade de Representação}
+    Utilizando a fórmula $B^n$, determine a quantidade de combinações possíveis para cada caso:
+
+
+    \begin{enumerate}[a)]
+        \item Quantos números diferentes podem ser expressos usando \textbf{2 dígitos} na base \textbf{10}?
+
+              \vspace{0.4cm}
+
+        \item Quantos números diferentes podem ser expressos usando \textbf{5 dígitos} na base \textbf{2}?
+
+              \vspace{0.4cm}
+
+        \item Quantos números diferentes podem ser expressos usando \textbf{32 dígitos} na base \textbf{2}?
+    \end{enumerate}
+
+
+    \vspace{0.6cm}
+    \begin{center}
+        \textit{Dica: Lembre-se da nossa tabela de potências de 2 vista anteriormente!}
+    \end{center}
+\end{frame}
+
+\begin{frame}{Gabarito Comentado}
+    \begin{itemize}
+        \item[\textbf{a)}] \textbf{Base 10, $n=2$:}
+              $$ 10^2 = \mathbf{100} \text{ combinações} $$
+              \textit{(Os números de 00 a 99)}
+
+              \vspace{0.3cm}
+
+        \item[\textbf{b)}] \textbf{Base 2, $n=5$:}
+              $$ 2^5 = \mathbf{32} \text{ combinações} $$
+              \textit{(Os números binários de 00000 a 11111)}
+
+              \vspace{0.3cm}
+
+        \item[\textbf{c)}] \textbf{Base 2, $n=32$:}
+              $$ 2^{32} = \mathbf{4.294.967.296} \text{ combinações} $$
+              \textit{(Aproximadamente 4,3 bilhões de valores diferentes)}
+    \end{itemize}
+
+
+    A quantidade de bits ($n$) define o "tamanho do universo" de números que podemos contar. Se o resultado de uma conta for o número $2^{32} + 1$, ele não "caberá" no universo que so temos 32 bits, gerando o \textbf{Overflow}.
+
+\end{frame}
+
+\subsection{Convenções para Representação Finita}
+
+\begin{frame}{Como representar o sinal?}
+    Até agora, vimos números "sem sinal" (unsigned), onde todos os bits representam magnitude. Para incluir números negativos, precisamos de convenções:
+
+    \begin{itemize}
+        \item \textbf{Números sem sinal:} Faixa de $0$ a $B^n - 1$.
+        \item \textbf{Números com sinal:} Três esquemas principais:
+              \begin{enumerate}
+                  \item \textbf{Sinal-Magnitude:} O bit mais à esquerda indica o sinal ($0 = +, 1 = -$).
+                  \item \textbf{Excesso de $2^{n-1}$:} O valor é deslocado por uma constante.
+                  \item \textbf{Complementos (1 e 2):} O bit de sinal faz parte do valor aritmético.
+              \end{enumerate}
+    \end{itemize}
+
+    \begin{block}{O problema do Zero}
+        Como $n$ bits geram uma quantidade par de combinações ($2^n$), ao usarmos uma para o zero, sobra um número ímpar de padrões para dividir entre positivos e negativos.
+    \end{block}
+\end{frame}
+
+\subsection{Sinal-Magnitude}
+
+\begin{frame}{O Esquema Sinal-Magnitude}
+    É a forma mais intuitiva, semelhante ao que fazemos no papel:
+    \vspace{0.3cm}
+    \begin{center}
+        \begin{tabular}{|c|c|c|c|c|}
+            \hline
+            $b_{n-1}$      & $b_{n-2}$                                                & \dots & $b_1$ & $b_0$ \\ \hline
+            \textbf{Sinal} & \multicolumn{4}{c|}{\textbf{Magnitude (Valor Absoluto)}}                         \\ \hline
+        \end{tabular}
+    \end{center}
+
+    \begin{itemize}
+        \item \textbf{Bit de Sinal ($b_{n-1}$):} $0 \rightarrow$ Positivo ($+$) | $1 \rightarrow$ Negativo ($-$).
+        \item \textbf{Magnitude:} Representada pelos $n-1$ bits restantes.
+        \item \textbf{Faixa de Valores:} De $-(B^{n-1}-1)$ até $B^{n-1}-1$.
+    \end{itemize}
+
+    \begin{alertblock}{O Problema do "Zero Duplo"}
+        Neste sistema, o zero possui duas representações:
+        \begin{itemize}
+            \item $+0$ (ex: \texttt{0000}) e $-0$ (ex: \texttt{1000}).
+        \end{itemize}
+        Isso desperdiça uma combinação e complica a lógica do hardware.
+    \end{alertblock}
+\end{frame}
+
+\begin{frame}{Exemplos e Exercício (Sinal-Magnitude)}
+    Considere $n=4$ bits:
+    \begin{itemize}
+        \item $0011_2 \rightarrow +3_{10}$
+        \item $1011_2 \rightarrow -3_{10}$
+        \item $1000_2 = 0000_2 = 0$
+    \end{itemize}
+
+    \vspace{0.4cm}
+
+    Converta os decimais para binário usando \textbf{5 bits} em \textbf{Sinal-Magnitude}:
+    \begin{enumerate}[a)]
+        \item $-15$
+        \item $-1$
+        \item $0$ (apresente as duas formas)
+        \item $10$
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}{Gabarito: Exercício 21}
+    Para $n=5$ bits, o primeiro bit é o sinal e os outros 4 são a magnitude:
+
+    \begin{itemize}
+        \item[\textbf{a)}] $-15 \rightarrow$ Sinal: $1$ $\rightarrow$ Magnitude ($15_{10}$): $1111_2$ $\rightarrow$ \textbf{11111}
+        \item[\textbf{b)}] $-1 \rightarrow$ Sinal: $1$ $\rightarrow$ Magnitude ($1_{10}$): $0001_2$ $\rightarrow$ \textbf{10001}
+        \item[\textbf{c)}] $0 \rightarrow$ \textbf{00000} ($+0$) e \textbf{10000} ($-0$)
+        \item[\textbf{d)}] $10 \rightarrow$ Sinal: $0$ $\rightarrow$ Magnitude ($10_{10}$): $1010_2$ $\rightarrow$ \textbf{01010}
+    \end{itemize}
+
+    \begin{block}{Reflexão}
+        Note que em Sinal-Magnitude, para tornar um número negativo, basta "ligar" o bit mais significativo. O restante do número permanece idêntico.
+    \end{block}
+\end{frame}
+
+\subsection{Excesso de $2^{n-1}$ (Representação com Viés)}
+
+\begin{frame}{O Esquema de Excesso de $2^{n-1}$}
+    Neste sistema, não "reservamos" um bit de sinal isolado. Em vez disso, somamos um valor fixo ao número real para deslocá-lo para a faixa positiva.
+
+    \begin{block}{Funcionamento}
+        Para $n$ bits, o excesso é $2^{n-1}$.
+        $$\text{Representação Binária} = \text{Valor Decimal} + 2^{n-1}$$
+    \end{block}
+
+    \begin{itemize}
+        \item \textbf{Inversão de Lógica:} Ao contrário do Sinal-Magnitude, aqui:
+              \begin{itemize}
+                  \item Números que começam com \textbf{0} são \textbf{Negativos}.
+                  \item Números que começam com \textbf{1} são \textbf{Positivos} (ou zero).
+              \end{itemize}
+        \item \textbf{Vantagem:} Mantém a \textbf{ordem crescente} dos bits igual à ordem dos valores decimais.
+        \item \textbf{Zero Único:} O valor 0 é representado pelo padrão $100...0_2$.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Exemplo: $n = 4$ (Excesso de $2^3 = 8$)}
+    Com 4 bits, somamos 8 a cada valor para achar seu código:
+
+    \begin{table}[]
+        \centering
+        \begin{tabular}{|c|c|l|}
+            \hline
+            \textbf{Decimal} & \textbf{Cálculo ($+8$)} & \textbf{Binário}       \\ \hline
+            $-8$ (mínimo)    & $-8 + 8 = 0$            & \texttt{0000}          \\ \hline
+            $-7$             & $-7 + 8 = 1$            & \texttt{0001}          \\ \hline
+            \textbf{0}       & \textbf{$0 + 8 = 8$}    & \textbf{\texttt{1000}} \\ \hline
+            $+1$             & $1 + 8 = 9$             & \texttt{1001}          \\ \hline
+            $+7$ (máximo)    & $7 + 8 = 15$            & \texttt{1111}          \\ \hline
+        \end{tabular}
+    \end{table}
+
+    \begin{itemize}
+        \item \textbf{Faixa de Valores ($n=4$):} de $-8$ a $+7$.
+        \item \textbf{Regra Geral:} de $-(2^{n-1})$ a $2^{n-1}-1$.
+    \end{itemize}
+\end{frame}
+
+
+
+\begin{frame}{Exercício 22: Excesso de $2^{n-1}$ ($n=5$)}
+    Para $n=5$, o excesso é $2^{5-1} = 2^4 = \mathbf{16}$.\\
+    \textit{Regra: Some 16 ao número e converta o resultado para binário de 5 bits.}
+
+
+    Converta para binário (5 bits, com Excesso de $2^{n-1}$):
+    \begin{enumerate}[a)]
+        \item $-15$
+        \item $-1$
+        \item $0$
+        \item $10$
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Gabarito: Exercício 22}
+    \begin{itemize}
+        \item[\textbf{a)}] \textbf{$-15$:} $-15 + 16 = 1 \rightarrow \mathbf{00001_2}$
+        \item[\textbf{b)}] \textbf{$-1$:} $-1 + 16 = 15 \rightarrow \mathbf{01111_2}$
+        \item[\textbf{c)}] \textbf{$0$:} $0 + 16 = 16 \rightarrow \mathbf{10000_2}$
+        \item[\textbf{d)}] \textbf{$10$:} $10 + 16 = 26 \rightarrow \mathbf{11010_2}$
+    \end{itemize}
+
+    \begin{exampleblock}{Dica Visual}
+        Repare que o zero ($10000$) divide a tabela exatamente no meio. Qualquer número menor que $16$ começará com $0$ (negativos), e qualquer número $\geq 16$ começará com $1$ (positivos).
+    \end{exampleblock}
+\end{frame}
