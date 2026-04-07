@@ -258,8 +258,8 @@
 \subsection{Sinal-Magnitude}
 
 \begin{frame}{O Esquema Sinal-Magnitude}
-    É a forma mais intuitiva, semelhante ao que fazemos no papel:
-    \vspace{0.3cm}
+
+
     \begin{center}
         \begin{tabular}{|c|c|c|c|c|}
             \hline
@@ -269,7 +269,8 @@
     \end{center}
 
     \begin{itemize}
-        \item \textbf{Bit de Sinal ($b_{n-1}$):} $0 \rightarrow$ Positivo ($+$) | $1 \rightarrow$ Negativo ($-$).
+        \item \textbf{Bit de Sinal ($b_{n-1}$):} $0 \rightarrow$ Positivo ($+$)
+        \item  $1 \rightarrow$ Negativo ($-$).
         \item \textbf{Magnitude:} Representada pelos $n-1$ bits restantes.
         \item \textbf{Faixa de Valores:} De $-(B^{n-1}-1)$ até $B^{n-1}-1$.
     \end{itemize}
@@ -281,6 +282,31 @@
         \end{itemize}
         Isso desperdiça uma combinação e complica a lógica do hardware.
     \end{alertblock}
+\end{frame}
+
+\begin{frame}{Representação Sinal-Magnitude ($n=4$)}
+    A tabela abaixo apresenta todas as 16 combinações possíveis para 4 bits:
+
+    \begin{center}
+        \small
+        \begin{tabular}{|c|c||c|c|}
+            \hline
+            \textbf{Binário} & \textbf{Valor Decimal} & \textbf{Binário} & \textbf{Valor Decimal} \\ \hline \hline
+            \texttt{0000}    & $+0$                   & \texttt{1000}    & $-0$                   \\ \hline
+            \texttt{0001}    & $+1$                   & \texttt{1001}    & $-1$                   \\ \hline
+            \texttt{0010}    & $+2$                   & \texttt{1010}    & $-2$                   \\ \hline
+            \texttt{0011}    & $+3$                   & \texttt{1011}    & $-3$                   \\ \hline
+            \texttt{0100}    & $+4$                   & \texttt{1100}    & $-4$                   \\ \hline
+            \texttt{0101}    & $+5$                   & \texttt{1101}    & $-5$                   \\ \hline
+            \texttt{0110}    & $+6$                   & \texttt{1110}    & $-6$                   \\ \hline
+            \texttt{0111}    & $+7$                   & \texttt{1111}    & $-7$                   \\ \hline
+        \end{tabular}
+    \end{center}
+
+    \begin{itemize}
+        \item \textbf{Faixa de representação:} $[-7, +7]$.
+        \item Observe a simetria: o bit mais significativo (MSB) apenas altera o sinal, mantendo a magnitude idêntica.
+    \end{itemize}
 \end{frame}
 
 \begin{frame}{Exemplos e Exercício (Sinal-Magnitude)}
@@ -361,6 +387,29 @@
     \end{itemize}
 \end{frame}
 
+\begin{frame}{Tabela Completa: Excesso de $2^{3}=8$ ($n=4$)}
+    \begin{center}
+        \footnotesize
+        \begin{tabular}{|c|c|c||c|c|c|}
+            \hline
+            \textbf{Binário} & \textbf{Cálculo} & \textbf{Decimal} & \textbf{Binário} & \textbf{Cálculo} & \textbf{Decimal} \\ \hline \hline
+            \texttt{0000}    & $0 - 8$          & $-8$             & \texttt{1000}    & $8 - 8$          & $\mathbf{0}$     \\ \hline
+            \texttt{0001}    & $1 - 8$          & $-7$             & \texttt{1001}    & $9 - 8$          & $+1$             \\ \hline
+            \texttt{0010}    & $2 - 8$          & $-6$             & \texttt{1010}    & $10 - 8$         & $+2$             \\ \hline
+            \texttt{0011}    & $3 - 8$          & $-5$             & \texttt{1011}    & $11 - 8$         & $+3$             \\ \hline
+            \texttt{0100}    & $4 - 8$          & $-4$             & \texttt{1100}    & $12 - 8$         & $+4$             \\ \hline
+            \texttt{0101}    & $5 - 8$          & $-3$             & \texttt{1101}    & $13 - 8$         & $+5$             \\ \hline
+            \texttt{0110}    & $6 - 8$          & $-2$             & \texttt{1110}    & $14 - 8$         & $+6$             \\ \hline
+            \texttt{0111}    & $7 - 8$          & $-1$             & \texttt{1111}    & $15 - 8$         & $+7$             \\ \hline
+        \end{tabular}
+    \end{center}
+
+    \begin{itemize}
+        \item \textbf{MSB = 0:} Números negativos.
+        \item \textbf{MSB = 1:} Números positivos e o zero.
+        \item Esta representação é muito utilizada em expoentes de números em \textbf{Ponto Flutuante (IEEE 754)}.
+    \end{itemize}
+\end{frame}
 
 
 \begin{frame}{Exercício 22: Excesso de $2^{n-1}$ ($n=5$)}
@@ -389,3 +438,31 @@
         Repare que o zero ($10000$) divide a tabela exatamente no meio. Qualquer número menor que $16$ começará com $0$ (negativos), e qualquer número $\geq 16$ começará com $1$ (positivos).
     \end{exampleblock}
 \end{frame}
+\begin{frame}{Representação em Excesso de $16$ ($n=5$)}
+    Para $n=5$, o excesso é $2^{5-1} = 16$. A faixa de valores vai de $-16$ a $+15$.
+
+    \begin{center}
+        \scriptsize
+        \begin{tabular}{|c|c||c|c||c|c|}
+            \hline
+            \textbf{Binário} & \textbf{Decimal} & \textbf{Binário}        & \textbf{Decimal} & \textbf{Binário}                  & \textbf{Decimal} \\ \hline \hline
+            \texttt{00000}   & $-16$            & \texttt{01011}          & $-5$             & \texttt{10110}                    & $+6$             \\ \hline
+            \texttt{00001}   & $-15$            & \texttt{01100}          & $-4$             & \texttt{10111}                    & $+7$             \\ \hline
+            \texttt{00010}   & $-14$            & \texttt{01101}          & $-3$             & \texttt{11000}                    & $+8$             \\ \hline
+            \texttt{00011}   & $-13$            & \texttt{01110}          & $-2$             & \texttt{11001}                    & $+9$             \\ \hline
+            \texttt{00100}   & $-12$            & \texttt{01111}          & $-1$             & \texttt{11010}                    & $+10$            \\ \hline
+            \texttt{00101}   & $-11$            & \textbf{\texttt{10000}} & $\mathbf{0}$     & \texttt{11011}                    & $+11$            \\ \hline
+            \texttt{00110}   & $-10$            & \texttt{10001}          & $+1$             & \texttt{11100}                    & $+12$            \\ \hline
+            \texttt{00111}   & $-9$             & \texttt{10010}          & $+2$             & \texttt{11101}                    & $+13$            \\ \hline
+            \texttt{01000}   & $-8$             & \texttt{10011}          & $+3$             & \texttt{11110}                    & $+14$            \\ \hline
+            \texttt{01001}   & $-7$             & \texttt{10100}          & $+4$             & \texttt{11111}                    & $+15$            \\ \hline
+            \texttt{01010}   & $-6$             & \texttt{10101}          & $+5$             & \multicolumn{2}{c|}{\textit{---}}                    \\ \hline
+        \end{tabular}
+    \end{center}
+
+    \begin{itemize}
+        \item \textbf{Cálculo:} $\text{Valor} = \text{Inteiro sem sinal} - 16$.
+        \item O padrão \texttt{10000} sempre representa o zero real.
+    \end{itemize}
+\end{frame}
+
