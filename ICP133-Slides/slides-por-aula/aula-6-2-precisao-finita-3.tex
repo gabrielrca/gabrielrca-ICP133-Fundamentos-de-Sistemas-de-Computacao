@@ -287,3 +287,237 @@
 %    \end{center}
 %\end{frame}
 
+
+
+\begin{frame}{A Parte Fracionária da Mantissa }
+    Os 23 bits reservados para a parte fracionária usam uma codificação posicional sem sinal.
+
+    \begin{itemize}
+        \item O bit mais à esquerda corresponde ao expoente $-1$.
+        \item O segundo bit ao expoente $-2$, e assim por diante.
+        \item O mapeamento completo pode ser visto.
+    \end{itemize}
+
+    \begin{figure}[h]
+        \centering
+        % Substitua pelo caminho da sua imagem real
+        \includegraphics[width=\textwidth]{Figuras/frac.png}
+        \caption{Mapeamento dos bits da mantissa e potências de 2.}
+
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Pesos das Potências Negativas de 2}
+
+
+    \begin{table}[]
+        \centering
+        \renewcommand{\arraystretch}{1.2} % Dá um respiro entre as linhas
+        \begin{tabular}{@{}ccc@{}}
+            \toprule
+            \textbf{Potência} & \textbf{Fração} & \textbf{Decimal} \\ \midrule
+            $2^{-1}$          & $1/2$           & 0,5              \\
+            $2^{-2}$          & $1/4$           & 0,25             \\
+            $2^{-3}$          & $1/8$           & 0,125            \\
+            $2^{-4}$          & $1/16$          & 0,0625           \\
+            $2^{-5}$          & $1/32$          & 0,03125          \\
+            $2^{-6}$          & $1/64$          & 0,015625         \\ \bottomrule
+        \end{tabular}
+        \caption{Valores decimais das potências negativas de 2.}
+    \end{table}
+
+
+\end{frame}
+
+\begin{frame}{Exemplo: Mantissa 1,25 (Parte frac = 0,25)}
+    Se a mantissa (base 10) é $1,25$, sua parte fracionária é $0,25$.
+    Primeiro, convertemos para binário: $0,25_{10} = 0,01_2$.
+
+    \begin{itemize}
+        \item Preenchemos os bits iniciais e completamos com zeros à direita.
+        \item Podemos incluir tantos "zeros à direita" quanto necessários para preencher os 23 bits.
+    \end{itemize}
+
+    \begin{figure}[h]
+        \centering
+        % Substitua pelo caminho da sua imagem real
+        \includegraphics[width=\textwidth]{Figuras/frac_025.png}
+        \caption{Preenchimento dos bits para a parte fracionária 0,25.}
+        \label{fig-frac025}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Decodificando a Mantissa}
+    Para decodificar uma representação IEEE 754, o processo é o inverso:
+
+    \begin{enumerate}
+        \item Identificamos a sequência de bits fracionários.
+        \item Acrescentamos o \textbf{1 à esquerda} (bit oculto).
+        \item Convertemos o número binário resultante para a base 10.
+    \end{enumerate}
+
+    \begin{exampleblock}{Exemplo Prático}
+        Dada a sequência: \texttt{11010000000000000000000}
+        \begin{itemize}
+            \item Mantissa em binário: $1,1101_2$
+            \item Conversão: $M = 1 + 2^{-1} + 2^{-2} + 2^{-4}$
+            \item $M = 1 + 0,5 + 0,25 + 0,0625 = \mathbf{1,8125}$
+        \end{itemize}
+    \end{exampleblock}
+\end{frame}
+
+
+
+\begin{frame}{Codificação e Decodificação Completa}
+    Agora que já sabemos codificar e decodificar cada trecho dos 32 bits do padrão, podemos juntar as informações para codificar ou decodificar o número sendo representado.
+
+    \begin{exampleblock}{Exemplo 1: Decodificando um float}
+        Decodifique a sequência: \texttt{0 10000000 11100000000000000000000}
+
+    \end{exampleblock}
+\end{frame}
+
+
+\begin{frame}{Codificação e Decodificação Completa}
+    Agora que já sabemos codificar e decodificar cada trecho dos 32 bits do padrão, podemos juntar as informações para codificar ou decodificar o número sendo representado.
+
+    \begin{exampleblock}{Exemplo 1: Decodificando um float}
+        Decodifique a sequência: \texttt{0 10000000 11100000000000000000000}
+        \begin{itemize}
+            \item \textbf{Sinal:} $S = 0 \implies$ Positivo.
+            \item \textbf{Expoente:} $exp = 10000000_2 = 128_{10}$.
+            \item \textbf{Expoente Real:} $E = 128 - 127 = 1$.
+            \item \textbf{Mantissa:} $frac = 111... \implies M = 1 + 2^{-1} + 2^{-2} + 2^{-3}$
+            \item $M = 1 + 0,5 + 0,25 + 0,125 = \mathbf{1,875}$.
+            \item \textbf{Resultado:} $1,875 \times 2^1 = \mathbf{3,75}$.
+        \end{itemize}
+    \end{exampleblock}
+\end{frame}
+
+
+\begin{frame}{Codificação e Decodificação Completa}
+    Agora que já sabemos decodificar cada trecho, podemos juntar as informações para encontrar o valor real do número.
+
+
+    \begin{block}{Deslocamento da Vírgula}
+        Como $E=1$, podemos deslocar a vírgula binária **uma casa para a direita** antes de converter para decimal:
+        \begin{center}
+            $1,111_2 \times 2^1 = \mathbf{11,11_2}$
+        \end{center}
+        \textbf{Conversão Final:}
+        $$11,11_2 = 2^1 + 2^0 + 2^{-1} + 2^{-2} = 2 + 1 + 0,5 + 0,25 = \mathbf{3,75}$$
+    \end{block}
+\end{frame}
+
+
+\begin{frame}{Exemplo 2: Construindo a representação (1/2)}
+    Vamos construir a representação float do número $\mathbf{-4535,8125}$.
+
+    \begin{itemize}
+        \item \textbf{Passo 1 :} $S = 1$ (negativo).
+        \item \textbf{Passo 2 :}
+              Convertendo a parte inteira (Fig. \ref{fig-div4535}) e a fracionária (Fig. \ref{fig-mult.8125}):
+              $$4535,8125_{10} = 1000110110111,1101_2$$
+    \end{itemize}
+
+    \begin{columns}
+        \begin{column}{0.45\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=\textwidth]{Figuras/div4535.png}
+                \caption{Conversão de 4535.}
+                \label{fig-div4535}
+            \end{figure}
+        \end{column}
+        \begin{column}{0.45\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=\textwidth]{Figuras/mult8125.png}
+                \caption{Conversão de 0,8125.}
+                \label{fig-mult.8125}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Exemplo 2: Construindo a representação (2/2)}
+    \begin{itemize}
+        \item \textbf{Passo 3 :}
+              Mover a vírgula para obter a forma $1,xxxx \times 2^E$:
+              $$1000110110111,1101 = 1,0001101101111101 \times 2^{12}$$
+        \item \textbf{Passo 4 :}
+              \begin{itemize}
+                  \item $M = 1,0001101101111101 \implies \mathbf{frac = 0001101101111101}$
+                  \item $E = 12 \implies exp = 12 + 127 = 139$
+                  \item $139$ em binário de 8 bits: $\mathbf{10001011}$
+              \end{itemize}
+        \item \textbf{Passo 5 :}
+              \texttt{1 | 10001011 | 00011011011111010000000}
+    \end{itemize}
+
+    \begin{block}{Representação Final}
+        Agrupando de 4 em 4 bits para Hexadecimal:
+        \texttt{1100 0101 1000 1101 1011 1110 1000 0000} \\
+        \centering \Large \textbf{0xC58DBE80}
+    \end{block}
+\end{frame}
+
+\section{Precisão Dupla (Double)}
+
+\begin{frame}{Precisão Dupla (64 bits)}
+    O padrão IEEE 754 também define a precisão dupla, que utiliza o dobro de bits para aumentar tanto a faixa de valores quanto a precisão.
+
+    \begin{itemize}
+        \item \textbf{Sinal (S):} 1 bit (índice 63).
+        \item \textbf{Expoente ($exp$):} 11 bits (índices 62 a 52).
+              \begin{itemize}
+                  \item Lógica do excesso: $exp = E + \mathbf{1023}$.
+              \end{itemize}
+        \item \textbf{Mantissa ($frac$):} 52 bits (índices 51 a 0).
+    \end{itemize}
+
+    \begin{block}{Arrumação dos Bits}
+        \texttt{S EEEEEEEEEEE MMMMMMMMMMMMMMMMMMM... (52x)}
+    \end{block}
+
+    \begin{exampleblock}{Curiosidade}
+        Enquanto o \textit{float} (simples) tem cerca de 7 dígitos decimais de precisão, o \textit{double} (dupla) oferece cerca de \textbf{15 a 17 dígitos}.
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Exemplo: O número 2 em Precisão Dupla}
+    Como representar o número inteiro $2_{10}$ em 64 bits?
+
+    \begin{itemize}
+        \item \textbf{Sinal:} $S = 0$ (positivo).
+        \item \textbf{Normalização:} $2_{10} = 10_2 = \mathbf{1,0 \times 2^1}$.
+        \item \textbf{Expoente:} $E = 1 \implies exp = 1 + 1023 = \mathbf{1024}$.
+              \begin{itemize}
+                  \item $1024$ em 11 bits: $\mathbf{10000000000_2}$.
+              \end{itemize}
+        \item \textbf{Mantissa ($frac$):} Apenas zeros (52 bits).
+    \end{itemize}
+
+    \begin{block}{Resultado em Hexadecimal (8 bytes)}
+        Agrupando os 64 bits:
+        \begin{center}
+            \Large \texttt{40 00 00 00 00 00 00 00}
+        \end{center}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Para pensar...}
+    \begin{alertblock}{Desafio para a turma}
+        Você consegue imaginar uma regra sobre a parte fracionária da mantissa na representação IEEE 754 de números inteiros que são \textbf{potências de 2}?
+    \end{alertblock}
+
+    \vspace{0.5cm}
+    \textbf{Dica:} Pense no que acontece com a vírgula na normalização de números como $1, 2, 4, 8, 16, \dots$
+
+    \begin{itemize}
+        \item $1 = 1,0 \times 2^0$
+        \item $2 = 1,0 \times 2^1$
+        \item $4 = 1,0 \times 2^2$
+        \item $8 = 1,0 \times 2^3$
+    \end{itemize}
+\end{frame}
