@@ -1,0 +1,78 @@
+\novalista{4 - Números Fracionários e Padrão IEEE 754}
+
+\begin{enumerate}
+
+    \item \textbf{Notação Posicional Fracionária:}
+          Converta os seguintes números binários para a base 10:
+          \begin{enumerate}
+              \item $10,1_2$
+              \item $110,01_2$
+              \item $0,111_2$
+              \item $1011,101_2$
+              \item $100,0011_2$
+          \end{enumerate}
+
+    \item \textbf{Conversão Decimal para Binário (Multiplicações Sucessivas):}
+          Converta os seguintes valores decimais para binário (se houver dízima, apresente 6 casas fracionárias):
+          \begin{enumerate}
+              \item $12,5$
+              \item $0,3125$
+              \item $8,75$
+              \item $2,4$
+              \item $0,1$
+          \end{enumerate}
+
+    \item \textbf{O Problema da Dízima Binária:}
+          \begin{enumerate}
+              \item Por que o número $0,1_{10}$ não pode ser representado de forma exata no sistema binário?
+              \item Identifique, entre os números $0,5$; $0,25$; $0,3$ e $0,625$, qual deles gera uma dízima periódica em binário.
+          \end{enumerate}
+
+    \item \textbf{IEEE 754 - Decodificação de Expoente (Precisão Simples):}
+          Dado o campo de expoente ($exp$) de 8 bits, determine o valor do expoente real ($E$) utilizando o viés (excesso) de 127:
+          \begin{enumerate}
+              \item $01111111_2$
+              \item $10000001_2$
+              \item $01111100_2$
+              \item $10001011_2$
+              \item $00000001_2$
+          \end{enumerate}
+
+    \item \textbf{IEEE 754 - Codificação de Expoente (Precisão Simples):}
+          Determine como os seguintes expoentes reais ($E$) seriam armazenados no campo $exp$ de 8 bits:
+          \begin{enumerate}
+              \item $E = 0$
+              \item $E = 5$
+              \item $E = -10$
+              \item $E = 127$
+              \item $E = -126$
+          \end{enumerate}
+
+    \item \textbf{IEEE 754 - Decodificação Completa (32 bits):}
+          Converta as representações IEEE 754 abaixo para o valor decimal:
+          \begin{enumerate}
+              \item \texttt{0 10000000 10000000000000000000000}
+              \item \texttt{1 01111110 00000000000000000000000}
+              \item \texttt{0 10000010 11000000000000000000000}
+              \item \texttt{1 10000100 01010000000000000000000}
+          \end{enumerate}
+
+    \item \textbf{IEEE 754 - Codificação Completa (Hexadecimal):}
+          Represente os números abaixo no padrão IEEE 754 de 32 bits e forneça o resultado final em Hexadecimal:
+          \begin{enumerate}
+              \item $13,0$
+              \item $-0,5$
+              \item $2,25$
+              \item $-10,75$
+          \end{enumerate}
+
+    \item \textbf{Precisão Simples vs. Precisão Dupla:}
+          \begin{enumerate}
+              \item Qual o tamanho do campo de expoente e da mantissa na Precisão Dupla (64 bits)?
+              \item Qual o valor do viés (excesso) utilizado no expoente da Precisão Dupla?
+              \item O que são os valores especiais \textbf{NaN} e \textbf{Infinito} no padrão IEEE 754?
+              \item Por que o padrão não armazena o bit "1" antes da vírgula na mantissa? Como esse bit é chamado?
+              \item \textbf{Desafio:} Qual a característica da mantissa ($frac$) de qualquer número que seja uma potência exata de 2 (ex: 2, 4, 8, 16)?
+          \end{enumerate}
+
+\end{enumerate}

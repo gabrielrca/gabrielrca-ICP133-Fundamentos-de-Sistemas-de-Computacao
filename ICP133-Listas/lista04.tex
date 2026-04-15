@@ -1,0 +1,193 @@
+\novalista{4 - Complemento a 1 e Complemento a 2}
+
+\begin{enumerate}
+
+    \item \textbf{Complemento a 1 - decimal para binário:}
+          Considere $n = 4$ bits.
+          Converta os seguintes números:
+          \begin{enumerate}
+              \item $+3$
+              \item $-3$
+              \item $+5$
+              \item $-5$
+              \item $+1$
+              \item $-1$
+              \item $+7$
+              \item $-7$
+              \item $+0$
+              \item $-0$
+              \item $+6$
+              \item $-6$
+              \item $+2$
+              \item $-2$
+              \item $+4$
+          \end{enumerate}
+
+    \item \textbf{Complemento a 1 - binário para decimal:}
+          Considere $n = 4$ bits.
+          Converta os seguintes números:
+          \begin{enumerate}
+              \item $1110_2$
+              \item $1101_2$
+              \item $1010_2$
+              \item $0001_2$
+              \item $1111_2$
+              \item $1000_2$
+              \item $0111_2$
+              \item $0101_2$
+              \item $0000_2$
+              \item $1100_2$
+              \item $1011_2$
+              \item $0011_2$
+              \item $0110_2$
+              \item $1001_2$
+          \end{enumerate}
+          Responda:
+          \begin{enumerate}
+              \item Ao olhar para o bit mais significativo (MSB), como identificamos se o número é positivo ou negativo?
+              \item Quais dos binários acima representam o valor $0$ em decimal?
+              \item O que acontece com o valor decimal se invertermos todos os bits de $0101_2$?
+          \end{enumerate}
+
+    \item \textbf{Complemento a 2 - decimal para binário:}
+          Considere $n = 5$ bits.
+          Converta os seguintes números:
+          \begin{enumerate}
+              \item $+7$
+              \item $-7$
+              \item $+12$
+              \item $-12$
+              \item $-1$
+              \item $+15$
+              \item $-15$
+              \item $-16$
+              \item $+1$
+              \item $-8$
+              \item $+4$
+              \item $-4$
+              \item $+0$
+              \item $-2$
+          \end{enumerate}
+
+          Responda:
+          \begin{enumerate}
+              \item O número $+16$ pode ser representado com 5 bits em Complemento a 2? Justifique.
+              \item Qual é a faixa (range) de valores decimais representáveis com 5 bits em Complemento a 2?
+              \item Qual a principal diferença entre a representação do zero em Complemento a 1 e Complemento a 2?
+              \item Explique a regra prática "inverte tudo e soma 1" para encontrar o correspondente negativo de um número.
+          \end{enumerate}
+    \item \textbf{Conversão Complemento a 2 - binário para decimal:}
+          Considere $n = 5$ bits. Converta os seguintes valores para a base 10:
+
+          \begin{enumerate}
+              \item $01101_2$
+              \item $11101_2$
+              \item $10000_2$
+              \item $00001_2$
+              \item $11010_2$
+              \item $10111_2$
+              \item $00111_2$
+              \item $11111_2$
+              \item $00000_2$
+              \item $10001_2$
+              \item $11000_2$
+              \item $01111_2$
+              \item $10010_2$
+              \item $01010_2$
+          \end{enumerate}
+
+          Responda:
+          \begin{enumerate}
+              \item Qual o valor decimal representado pelo binário $10000_2$? Por que ele é considerado um caso especial na representação de 5 bits?
+              \item Como o bit mais significativo (MSB) ajuda a determinar o sinal do número antes mesmo de realizar o cálculo?
+              \item Ao converter o binário $11111_2$, qual valor decimal é obtido?
+          \end{enumerate}
+    \item \textbf{Negação em Complemento a 2:}
+          Considere $n = 5$ bits. Realize a operação de negação dos seguintes números binários:
+          \begin{enumerate}
+              \item $00101_2$
+              \item $11011_2$
+              \item $00001_2$
+              \item $11111_2$
+              \item $01110_2$
+              \item $10101_2$
+              \item $01000_2$
+              \item $11100_2$
+              \item $01111_2$
+          \end{enumerate}
+
+          Responda:
+          \begin{enumerate}
+              \item O que acontece ao aplicar a negação no valor $00000_2$? Mostre o cálculo.
+              \item Tente aplicar a negação no valor $10000_2$. O que você observa no resultado final com 5 bits?
+              \item A negação de um número negativo em Complemento a 2 sempre resulta em um número positivo? Justifique com base no item anterior.
+              \item Descreva a regra prática do "Caminho da Direita": aquela onde mantemos os bits até o primeiro '1' (da direita para a esquerda) e invertemos o restante.
+          \end{enumerate}
+
+    \item \textbf{Adição em Complemento a 2 (4 bits):}
+          Realize as operações e indique se há overflow.
+
+          \begin{enumerate}
+              \item $3 + 2$
+              \item $5 + 3$
+              \item $-3 + (-2)$
+              \item $-4 + 3$
+              \item $-6 + (-3)$
+              \item $7 + 1$
+          \end{enumerate}
+
+    \item \textbf{Subtração em Complemento a 2 (4 bits):}
+          Realize as operações:
+
+          \begin{enumerate}
+              \item $5 - 2$
+              \item $3 - 5$
+              \item $-4 - 2$
+              \item $-3 - (-2)$
+              \item $7 - (-1)$
+          \end{enumerate}
+
+    \item \textbf{Detecção de Overflow:}
+          Indique se ocorre overflow (4 bits):
+
+          \begin{enumerate}
+              \item $6 + 3$
+              \item $-5 + (-4)$
+              \item $4 + (-3)$
+              \item $-2 + 1$
+              \item $7 + 2$
+          \end{enumerate}
+
+    \item \textbf{Extensão de sinal:}
+          Converta de 4 para 8 bits:
+
+          \begin{enumerate}
+              \item $0101_2$
+              \item $1101_2$
+              \item $0011_2$
+              \item $1010_2$
+              \item $1111_2$
+          \end{enumerate}
+
+    \item \textbf{Truncamento:}
+          Considere os valores abaixo e reduza para 3 bits:
+
+          \begin{enumerate}
+              \item $1100_2$
+              \item $1011_2$
+              \item $0111_2$
+              \item $1001_2$
+              \item Compare o valor antes e depois do truncamento
+          \end{enumerate}
+
+
+
+    \item \textbf{Questões conceituais:}
+          \begin{enumerate}
+              \item Qual a principal vantagem do complemento a 2 sobre o complemento a 1?
+              \item Por que o complemento a 2 não possui zero duplo?
+              \item Quando ocorre overflow na soma?
+              \item Por que o carry-out é descartado?
+          \end{enumerate}
+
+\end{enumerate}

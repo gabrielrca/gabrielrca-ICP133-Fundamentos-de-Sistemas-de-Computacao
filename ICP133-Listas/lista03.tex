@@ -1,0 +1,134 @@
+\novalista{3 - Números de Precisão Finita}
+
+\begin{enumerate}
+
+    \item \textbf{Capacidade de representação ($B^n$):}
+          \begin{enumerate}
+              \item Quantos valores diferentes podem ser representados com 3 dígitos na base 10?
+              \item Quantos valores diferentes podem ser representados com 6 bits?
+              \item Quantos valores diferentes podem ser representados com 12 bits?
+              \item Quantos valores diferentes podem ser representados com 4 dígitos na base 8?
+              \item Quantos valores diferentes podem ser representados com 2 dígitos na base 16?
+          \end{enumerate}
+
+    \item \textbf{Faixa de representação (sem sinal):}
+          \begin{enumerate}
+              \item Determine a faixa de valores representáveis com 4 bits sem sinal.
+              \item Determine a faixa de valores representáveis com 8 bits sem sinal.
+              \item Determine a faixa de valores representáveis com 10 bits sem sinal.
+              \item Qual o maior valor representável com 6 bits?
+              \item Qual o menor valor representável com 12 bits?
+          \end{enumerate}
+
+    \item \textbf{Overflow:}
+          Considere um sistema com \textbf{3 dígitos decimais} (000 a 999). Determine o resultado das operações e indique se ocorre overflow:
+
+          \begin{enumerate}
+              \item $450 + 600$
+              \item $999 + 1$
+              \item $800 + 150$
+              \item $1000 - 1$
+              \item $50 - 100$
+          \end{enumerate}
+
+    \item \textbf{Sinal-Magnitude  - decimal para binário:}
+
+          Considere representação com \textbf{5 bits} e converta os seguintes números para binário.
+
+          \begin{enumerate}
+              \item $+13$
+              \item  $-13$
+              \item  $-1$
+              \item  $+7$
+              \item  $-7$
+              \item  $+15$
+              \item  $-15$
+              \item  $+1$
+              \item  $-8$
+          \end{enumerate}
+
+          Responda:
+          \begin{enumerate}
+              \item O número $-16$ pode ser representado com \textbf{5 bits} ?  Justifique.
+              \item Represente o zero em suas formas possíveis com \textbf{5 bits}.
+              \item Qual a faixa de valores representáveis com \textbf{5 bits}?
+          \end{enumerate}
+
+    \item \textbf{Conversão Sinal-Magnitude - binário para decimal:}
+          Converta os valores abaixo (5 bits):
+
+          \begin{enumerate}
+              \item $01101_2$
+              \item $11101_2$
+              \item $10000_2$
+              \item $00000_2$
+              \item $10110_2$
+              \item $01011_2$
+              \item $11011_2$
+              \item $00100_2$
+              \item $10101_2$
+              \item $01111_2$
+              \item $11111_2$
+              \item $10001_2$
+              \item $00001_2$
+              \item $11000_2$
+              \item $01000_2$
+          \end{enumerate}
+
+    \item \textbf{Excesso de $2^{n-1}$   - decimal para binário:}
+          Considere $n = 5$ bits e converta os seguintes números para binário.
+
+          \begin{enumerate}
+              \item  $-10$
+              \item $-1$
+              \item $0$
+              \item $7$
+              \item $12$
+              \item  $-16$
+              \item  $-8$
+              \item  $-5$
+              \item  $1$
+              \item  $3$
+              \item  $10$
+              \item  $15$
+          \end{enumerate}
+
+          Responda:
+          \begin{enumerate}
+              \item O número $16$ pode ser representado com $n = 5$ bits? Justifique.
+              \item Qual o menor valor representável com $n = 5$ bits ?
+              \item Qual o maior valor representável com $n = 5$ bits?
+          \end{enumerate}
+    \item \textbf{Conversão Excesso - binário para decimal:}
+          Converta os valores abaixo (5 bits):
+
+          \begin{enumerate}
+              \item $00000_2$
+              \item $01111_2$
+              \item $10000_2$
+              \item $11001_2$
+              \item $11111_2$
+              \item $00001_2$
+              \item $00100_2$
+              \item $01010_2$
+              \item $01110_2$
+              \item $10001_2$
+              \item $10101_2$
+              \item $11000_2$
+              \item $11010_2$
+              \item $11100_2$
+              \item $10111_2$
+          \end{enumerate}
+
+    \item \textbf{Análise comparativa entre sinal-magnitude e excesso:}
+          \begin{enumerate}
+              \item Qual a faixa de valores possíveis em Sinal-Magnitude com 6 bits?
+              \item Qual a faixa  de valores possíveis em Excesso de $2^{n-1}$ com 6 bits?
+              \item Compare as duas representações.
+              \item Qual delas possui zero duplicado?
+              \item Qual delas preserva ordem crescente?
+          \end{enumerate}
+
+
+
+\end{enumerate}
