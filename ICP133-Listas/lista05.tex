@@ -20,59 +20,73 @@
               \item $8,75$
               \item $2,4$
               \item $0,1$
+              \item $10,5$
+              \item $0,625$
+              \item $7,75$
+              \item $3,2$
+              \item $0,1$
+              \item $5,3$
           \end{enumerate}
 
-    \item \textbf{O Problema da Dízima Binária:}
-          \begin{enumerate}
-              \item Por que o número $0,1_{10}$ não pode ser representado de forma exata no sistema binário?
-              \item Identifique, entre os números $0,5$; $0,25$; $0,3$ e $0,625$, qual deles gera uma dízima periódica em binário.
-          \end{enumerate}
 
     \item \textbf{IEEE 754 - Decodificação de Expoente (Precisão Simples):}
-          Dado o campo de expoente ($exp$) de 8 bits, determine o valor do expoente real ($E$) utilizando o viés (excesso) de 127:
+          Dado o campo de expoente ($exp$) de 8 bits, determine o valor do expoente real ($E$):
           \begin{enumerate}
               \item $01111111_2$
-              \item $10000001_2$
-              \item $01111100_2$
-              \item $10001011_2$
-              \item $00000001_2$
+              \item $10000110_2$
+              \item $01111010_2$
+              \item $10001101_2$
+              \item $01000000_2$
+              \item $10100011_2$
+              \item $00111101_2$
+              \item $10011000_2$
+              \item $01110001_2$
+              \item $11000010_2$
           \end{enumerate}
 
     \item \textbf{IEEE 754 - Codificação de Expoente (Precisão Simples):}
-          Determine como os seguintes expoentes reais ($E$) seriam armazenados no campo $exp$ de 8 bits:
+          Determine como os seguintes expoentes reais ($E$) seriam armazenados no campo $exp$ de 8 bits (precisão simples):
           \begin{enumerate}
-              \item $E = 0$
-              \item $E = 5$
-              \item $E = -10$
-              \item $E = 127$
-              \item $E = -126$
+              \item $E = 1$
+              \item $E = -3$
+              \item $E = 12$
+              \item $E = -45$
+              \item $E = 63$
+              \item $E = -100$
+              \item $E = 85$
+              \item $E = -60$
+              \item $E = 110$
+              \item $E = -80$
           \end{enumerate}
 
     \item \textbf{IEEE 754 - Decodificação Completa (32 bits):}
           Converta as representações IEEE 754 abaixo para o valor decimal:
           \begin{enumerate}
-              \item \texttt{0 10000000 10000000000000000000000}
-              \item \texttt{1 01111110 00000000000000000000000}
-              \item \texttt{0 10000010 11000000000000000000000}
-              \item \texttt{1 10000100 01010000000000000000000}
+              \item \texttt{0 10000101 10110000000000000000000}
+              \item \texttt{1 10000110 01101000000000000000000}
+              \item \texttt{0 10000111 11100100000000000000000}
+              \item \texttt{1 10001000 00110110000000000000000}
+              \item \texttt{0 10001001 10011010000000000000000}
+              \item \texttt{1 10001010 01010110000000000000000}
+              \item \texttt{0 10001100 11001100000000000000000}
+              \item \texttt{1 10001101 10101000000000000000000}
+              \item \texttt{0 10001110 01110010000000000000000}
+              \item \texttt{1 10001111 00011100000000000000000}
           \end{enumerate}
 
     \item \textbf{IEEE 754 - Codificação Completa (Hexadecimal):}
-          Represente os números abaixo no padrão IEEE 754 de 32 bits e forneça o resultado final em Hexadecimal:
+          Represente os números abaixo no padrão IEEE 754 de 32 bits e forneça o resultado final em hexadecimal:
           \begin{enumerate}
-              \item $13,0$
-              \item $-0,5$
-              \item $2,25$
-              \item $-10,75$
-          \end{enumerate}
-
-    \item \textbf{Precisão Simples vs. Precisão Dupla:}
-          \begin{enumerate}
-              \item Qual o tamanho do campo de expoente e da mantissa na Precisão Dupla (64 bits)?
-              \item Qual o valor do viés (excesso) utilizado no expoente da Precisão Dupla?
-              \item O que são os valores especiais \textbf{NaN} e \textbf{Infinito} no padrão IEEE 754?
-              \item Por que o padrão não armazena o bit "1" antes da vírgula na mantissa? Como esse bit é chamado?
-              \item \textbf{Desafio:} Qual a característica da mantissa ($frac$) de qualquer número que seja uma potência exata de 2 (ex: 2, 4, 8, 16)?
+              \item $0,75$
+              \item $1,5$
+              \item $6,25$
+              \item $12,5$
+              \item $18,75$
+              \item $64,5$
+              \item $128,25$
+              \item $512,125$
+              \item $1043,75$
+              \item $16385,5$
           \end{enumerate}
 
 \end{enumerate}
