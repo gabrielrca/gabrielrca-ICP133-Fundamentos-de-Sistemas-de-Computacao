@@ -675,3 +675,370 @@
     \end{figure}
 
 \end{frame}
+
+
+
+
+
+\begin{frame}{Porta NOR de Duas Entradas}
+
+    \begin{itemize}
+        \item É o mesmo que o da porta OR, exceto pelo pequeno círculo na saída que representa a operação de inversão.
+        \item Expressão de saída: $x = \overline{A + B}$
+    \end{itemize}
+
+    \begin{itemize}
+        \item A porta NOR é equivalente à porta OR seguida de um INVERSOR.
+    \end{itemize}
+
+    \begin{itemize}
+        \item A saída da porta NOR é exatamente o inverso da saída da porta OR para todas as condições possíveis de entrada.
+        \item Saída da porta OR: nível ALTO quando qualquer entrada for ALTO.
+        \item Saída da porta NOR: nível BAIXO quando qualquer entrada for ALTO.
+        \item Esta operação pode ser estendida para portas NOR com mais de duas entradas.
+    \end{itemize}
+
+\end{frame}
+
+
+
+
+\begin{frame}{Porta NOR de Duas Entradas}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.8\textwidth]{Figuras/nor-2-entradas.png}
+
+    \end{figure}
+
+\end{frame}
+
+
+
+\begin{frame}{Porta NAND de Duas Entradas}
+
+    \begin{itemize}
+        \item É o mesmo que o da porta AND, exceto pelo pequeno círculo na saída que indica a operação de inversão.
+        \item Expressão de saída: $x = \overline{AB}$
+    \end{itemize}
+
+
+    \begin{itemize}
+        \item A porta NAND é equivalente à porta AND seguida de um INVERSOR.
+    \end{itemize}
+
+
+    \begin{itemize}
+        \item A saída da porta NAND é exatamente o inverso da porta AND para todas as condições possíveis de entrada.
+        \item Saída da porta AND: nível ALTO somente quando todas as entradas forem ALTO.
+        \item Saída da porta NAND: nível BAIXO somente quando todas as entradas forem ALTO.
+        \item Esta característica é válida para portas NAND com mais de duas entradas.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Porta NAND de Duas Entradas}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.8\textwidth]{Figuras/nand-2-entradas.png}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}{Descrevendo Circuitos Lógicos Algebricamente}
+    \begin{itemize}
+        \item \textbf{Princípio Fundamental:} Qualquer circuito lógico, por mais complexo que seja, pode ser descrito usando apenas as três operações booleanas básicas (AND, OR, NOT).
+        \item \textbf{Por quê?} Porque as portas AND, OR e INVERSOR são os \textbf{blocos fundamentais} (tijolos) de todos os sistemas digitais.
+        \item \textbf{Objetivo:} Dado um circuito desenhado, queremos encontrar a expressão algébrica que representa sua saída (xx) em função de suas entradas (A,B,C,…A,B,C,…).
+    \end{itemize}
+    \vspace{0.3cm}
+    \begin{block}{Metodologia}
+        Analisamos o circuito da \textbf{entrada para a saída}, escrevendo a expressão booleana na saída de cada porta, sucessivamente, até chegar à saída final.
+    \end{block}
+\end{frame}
+
+\begin{frame}{Exemplo de Análise: Circuito com 3 Entradas}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{Figuras/circ-3-entradas.png}
+
+    \end{figure}
+
+
+\end{frame}
+
+\begin{frame}{Atenção: A Necessidade dos Parênteses}
+
+
+    \textbf{Passo a passo no item b:}
+    \begin{enumerate}
+        \item A porta OR recebe A e B.
+        \item Sua saída é: \textbf{A+B}
+        \item A porta AND recebe $(A+B)$ e a entrada C.
+        \item A saída final x é o produto lógico (AND) desses valores.
+    \end{enumerate}
+
+
+    \begin{itemize}
+        \item Os \textbf{parênteses} são essenciais para garantir que a operação OR $(A+B)$ seja realizada \textbf{antes} da operação AND com C.
+        \item Sem os parênteses, a expressão seria interpretada de outra forma.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Precedência de Operadores na Álgebra Booleana}
+    \begin{itemize}
+        \item \textbf{O Problema:} A expressão $A \cdot B + C$ pode ser interpretada de \textbf{duas maneiras diferentes}:
+              \begin{itemize}
+                  \item (1) Operação OR de $A \cdot B$ com $C$ $\rightarrow$ $(A \cdot B) + C$
+                  \item (2) Operação AND de $A$ com $B + C$ $\rightarrow$ $A \cdot (B + C)$
+              \end{itemize}
+        \item \textbf{Resultados diferentes:} Cada interpretação gera uma saída distinta para as mesmas entradas.
+        \item \textbf{Solução:} É necessário estabelecer uma \textbf{regra de precedência} (ordem das operações).
+    \end{itemize}
+    \vspace{0.3cm}
+    \begin{block}{Regra }
+        Se uma expressão tiver operações AND e OR, a operação \textbf{AND é realizada primeiro}, a menos que existam \textbf{parênteses} indicando o contrário.
+    \end{block}
+\end{frame}
+
+\begin{frame}{Mesma Regra da Álgebra Convencional}
+    \begin{itemize}
+        \item \textbf{Comparação:} Esta regra para determinar a ordem das operações é a \textbf{mesma} usada na álgebra convencional.
+    \end{itemize}
+    \vspace{0.3cm}
+    \begin{table}
+        \centering
+        \begin{tabular}{c|c}
+            \hline
+            \textbf{Álgebra Convencional}        & \textbf{Álgebra Booleana}         \\ \hline
+            Multiplicação antes da Soma          & AND antes do OR                   \\
+            $2 + 3 \times 4 = 2 + 12 = 14$       & $A + B \cdot C = A + (B \cdot C)$ \\
+            Parênteses forçam a Soma primeiro    & Parênteses forçam o OR primeiro   \\
+            $(2 + 3) \times 4 = 5 \times 4 = 20$ & $(A + B) \cdot C$                 \\ \hline
+        \end{tabular}
+    \end{table}
+    \vspace{0.3cm}
+    \begin{itemize}
+        \item \textbf{Conclusão:} A precedência do operador AND (multiplicação lógica) sobre o OR (soma lógica) segue a mesma lógica intuitiva da matemática tradicional.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Exemplo Prático: Uso dos Parênteses}
+    Na figura 3.13 (b)
+
+    \vspace{0.2cm}
+    \textbf{Análise do Circuito:}
+    \begin{enumerate}
+        \item A porta OR recebe A e B $\rightarrow$ saída = $A + B$
+        \item Esta saída vai para uma porta AND junto com a entrada C.
+        \item Portanto: $x = (A + B) \cdot C$
+    \end{enumerate}
+
+    \begin{block}{Por que os parênteses são necessários?}
+        Sem os parênteses, a expressão $A + B \cdot C$ seria interpretada como $A + (B \cdot C)$ --- um circuito completamente diferente!
+    \end{block}
+\end{frame}
+
+\begin{frame}{O Que Acontece Sem os Parênteses?}
+
+
+    \begin{itemize}
+        \item A expressão $A + B \cdot C$ (sem parênteses) significa, pela regra de precedência:
+              \[ x = A + (B \cdot C) \]
+        \item Primeiro calcula-se $B \cdot C$ (AND), depois faz-se OR com A.
+        \item Este é um \textbf{circuito diferente} do original da Figura 3.13(b).
+    \end{itemize}
+    \vspace{0.2cm}
+    \begin{alertblock}{Cuidado!}
+        Os parênteses não são opcionais. Eles alteram completamente a expressão lógica e, consequentemente, o circuito resultante.
+    \end{alertblock}
+\end{frame}
+
+\begin{frame}{Circuitos com INVERSORES Lógicos}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.8\textwidth]{Figuras/cir1.png}
+
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Circuitos com INVERSORES Lógicos}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.8\textwidth]{Figuras/cir2.png}
+
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Exercício - Faça as expressões dos circuitos}
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.7\textwidth]{Figuras/exercicio-circuitos1.png}
+
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Exercício (GABARITO)- Faça as expressões dos circuitos}
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.7\textwidth]{Figuras/exercicio-circuitos1-respostas.png}
+
+    \end{figure}
+\end{frame}
+
+
+
+
+\begin{frame}{Circuitos com INVERSORES Lógicos}
+
+    \begin{itemize}
+        \item Sempre que um INVERSOR estiver presente, a expressão para sua saída será igual à expressão de entrada com uma barra sobre ela.
+        \item \textbf{Figura 3.14(a):} A entrada A passa por um INVERSOR (saída = $\bar{A}$), que alimenta uma porta OR com B $\rightarrow$ $x = \bar{A} + B$
+        \item \textbf{Figura 3.14(b):} A porta OR produz $A + B$, que entra em um INVERSOR $\rightarrow$ $x = \overline{A + B}$
+    \end{itemize}
+    \begin{block}{Exercício: faça a tabela verdade das expressoes abaixo}
+        \begin{itemize}
+            \item $\overline{A + B}$
+            \item $\bar{A} + \bar{B}$
+        \end{itemize}
+        VEJA que as expressões $\overline{A + B}$ e $\bar{A} + \bar{B}$ \textbf{não são equivalentes}!
+    \end{block}
+\end{frame}
+
+\begin{frame}{Regras para Avaliar uma Expressão Booleana}
+    \begin{enumerate}
+        \item Primeiro, realize as inversões de termos simples; ou seja, $ \bar{0} = 1 $ ou $ \bar{1} = 0 $.
+        \item Em seguida, realize as operações dentro de parênteses.
+        \item Realize as operações AND antes das operações OR, a menos que os parênteses indiquem o contrário.
+        \item Se uma expressão tiver uma barra sobre, realize a operação indicada pela expressão e, em seguida, inverta o resultado.
+    \end{enumerate}
+
+
+\end{frame}
+
+\begin{frame}{Obtendo o Nível Lógico de Saída}
+    \begin{itemize}
+        \item De posse da expressão booleana para a saída de um circuito, podemos obter o nível lógico da saída para qualquer conjunto de níveis lógicos de entrada.
+        \item \textbf{Exemplo:} Determine o nível lógico da saída $x$ para o circuito da Figura 3.15(a) com $A = 0$, $B = 1$, $C = 1$ e $D = 1$.
+        \item \textbf{Procedimento:} Assim como na álgebra convencional, substituímos os valores das variáveis na expressão e realizamos as operações indicadas.
+    \end{itemize}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.4\textwidth]{Figuras/calclog1.png}
+
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Segundo Exemplo de Substituição}
+    \begin{itemize}
+        \item Vamos determinar a saída do circuito da Figura 3.15(b) para:
+        \item $A = 0$, $B = 0$, $C = 1$, $D = 1$ e $E = 1$
+    \end{itemize}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.4\textwidth]{Figuras/calclog2.png}
+
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Exercício}
+
+
+    \begin{block}{\textbf{Exercício}} Determine as saídas dos dois circuitos na Figura 3.15 no caso em que todas as entradas forem 1. As respostas são x = 0 e x = 1, respectivamente.
+    \end{block}
+\end{frame}
+
+\begin{frame}{Análise utilizando uma Tabela-Verdade}
+    \begin{itemize}
+        \item Quando se tem um circuito lógico combinacional e se deseja saber como ele funciona, podemos usar uma tabela-verdade.
+        \item \textbf{Este método:}
+              \begin{itemize}
+                  \item Permite que se analise uma porta ou combinação lógica de cada vez.
+                  \item Permite que se confira facilmente o trabalho.
+                  \item Quando o trabalho se encerra, há uma tabela que ajuda a verificação de erros do circuito lógico.
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Análise utilizando uma Tabela-Verdade }
+    \begin{itemize}
+        \item Lembre-se de que uma tabela-verdade lista as possíveis combinações de entrada em ordem numérica.
+        \item Para cada possível combinação de entrada, podemos determinar o estado lógico em cada ponto (nó) do circuito lógico, inclusive a saída.
+        \item Exemplo: Na Figura 3.16(a), há vários nós intermediários (conexões entre a saída de uma porta e a entrada de outra), chamados de $u$, $v$ e $w$.
+        \item O primeiro passo, após listar todas as combinações de entrada, é criar uma coluna na tabela-verdade para cada sinal intermediário (nó).
+    \end{itemize}
+\end{frame}
+
+
+
+\begin{frame}{Circuito com tabela verdade}
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.6\textwidth]{Figuras/circuito-com-tabela-verdade.png}
+
+    \end{figure}
+\end{frame}
+
+
+\begin{frame}{Exercício}
+
+
+    \begin{block}{\textbf{Exercício}} Analise a operação da Figura 3.15(a) criando uma tabela que mostre o estado lógico em cada nó do circuito.
+    \end{block}
+\end{frame}
+
+\begin{frame}{Exercício (GABARITO)}
+
+
+
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.9\textwidth]{Figuras/exercicio-tabelaverdade.png}
+
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Implementando circuitos a partir de expressões booleanas}
+    \begin{itemize}
+        \item Quando a operação de um circuito é definida por uma expressão booleana, podemos desenhar o diagrama do circuito lógico diretamente a partir da expressão.
+        \item \textbf{Exemplos:}
+              \begin{itemize}
+                  \item Se precisarmos de um circuito definido por $x = A \cdot B \cdot C$ $\rightarrow$ porta AND de três entradas.
+                  \item Se precisarmos de um circuito definido por $x = \bar{A} + B$ $\rightarrow$ porta OR de duas entradas com um INVERSOR em uma das entradas.
+              \end{itemize}
+        \item O mesmo raciocínio pode ser estendido para circuitos mais complexos.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Exemplo de Implementação}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.8\textwidth]{Figuras/3-17.png}
+
+    \end{figure}
+\end{frame}
+
+
+
+\begin{frame}{Exercício}
+
+
+    \begin{block}{\textbf{Exercício}} Desenhe o diagrama do circuito que implemente a expressão x = $(A + B) (\bar{B} + C)$%$
+    \end{block}
+\end{frame}
+
+\begin{frame}{Exercício (GABARITO)}
+
+
+
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{Figuras/garabrito-ex318.png}
+
+    \end{figure}
+\end{frame}
